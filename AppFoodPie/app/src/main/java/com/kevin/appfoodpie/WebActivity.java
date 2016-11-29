@@ -17,7 +17,8 @@ public class WebActivity extends BaseActivity {
 
     @Override
     void initView() {
-
+        // 绑定webView
+        webView = (WebView) findViewById(R.id.aty_web_show);
     }
 
     @Override
