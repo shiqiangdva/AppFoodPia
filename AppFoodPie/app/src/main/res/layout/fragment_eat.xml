@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.kevin.appfoodpie.fragments.EatFragment">
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fragment_eat_rl_height"
+        android:layout_weight="0.8">
+
+        <TextView
+            android:text="@string/tv_fragment_eat"
+            android:textSize="@dimen/tv_tvsize"
+            android:textColor="@color/colorDick"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/eat_fragment_img"
+            android:layout_margin="@dimen/iv_margin"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/ic_home_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/eat_fragment_tab"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tab_fragment_eat"
+        android:layout_weight="0.7"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/eat_fragment_vp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/vp_fragment_eat"
+        android:layout_weight="8.5"/>
+
+</LinearLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:padding="@dimen/two_ten">
+
+    <ImageView
+        android:id="@+id/item_fragment_eva_background_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"/>
+    <TextView
+        android:id="@+id/item_fragment_eva_source_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/two_ten"
+        android:textColor="@color/colorWhite"/>
+    <TextView
+        android:id="@+id/item_fragment_eva_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@color/colorWhite"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/item_fragment_eva_tail_tv"
+        android:layout_marginRight="@dimen/ten"
+        android:layout_toLeftOf="@+id/item_fragment_eva_tail_tv"
+        android:src="@mipmap/ic_read"/>
+    <TextView
+        android:id="@+id/item_fragment_eva_tail_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/ten"
+        android:textColor="@color/colorWhite"/>
+
+</RelativeLayout>

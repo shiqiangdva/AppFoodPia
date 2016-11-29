@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.kevin.appfoodpie.MainActivity">
+
+
+    <FrameLayout
+        android:id="@+id/mainAty_place"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:background="@color/colorDick"/>
+
+    <RadioGroup
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <RadioButton
+            android:id="@+id/rbt_encyclopedia"
+            android:layout_weight="1"
+            android:layout_width="@dimen/zen"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableTop="@drawable/encyclopedia_bg"
+            android:text="@string/rbt_one"
+            android:gravity="center"
+            android:textColor="@drawable/text_bg"
+            />
+
+        <RadioButton
+            android:id="@+id/rbt_eat"
+            android:layout_weight="1"
+            android:layout_width="@dimen/zen"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableTop="@drawable/eat_bg"
+            android:text="@string/rbt_two"
+            android:gravity="center"
+            android:textColor="@drawable/text_bg"/>
+
+        <RadioButton
+            android:id="@+id/rbt_my"
+            android:layout_weight="1"
+            android:layout_width="@dimen/zen"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableTop="@drawable/my_bg"
+            android:text="@string/rbt_three"
+            android:gravity="center"
+            android:textColor="@drawable/text_bg"/>
+
+    </RadioGroup>
+
+</LinearLayout>

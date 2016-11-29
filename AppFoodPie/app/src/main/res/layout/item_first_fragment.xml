@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp">
+
+
+    <!--<android.support.v7.widget.CardView-->
+        <!--app:cardElevation="10dp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="5dp">-->
+
+        <!--<RelativeLayout-->
+            <!--android:orientation="vertical"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<ImageView-->
+                <!--android:id="@+id/item_first_fragment_iv_big"-->
+                <!--android:src="@mipmap/ic_launcher"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"/>-->
+
+
+            <!--<RelativeLayout-->
+                <!--android:id="@+id/rv_xxx"-->
+                <!--android:layout_below="@id/item_first_fragment_iv_big"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+
+                <!--<de.hdodenhof.circleimageview.CircleImageView-->
+                    <!--android:id="@+id/item_first_fragment_iv_small"-->
+                    <!--android:layout_width="20dp"-->
+                    <!--android:layout_height="20dp" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/item_first_fragment_tv_name"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_toRightOf="@id/item_first_fragment_iv_small"/>-->
+
+                <!--<LinearLayout-->
+
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content">-->
+
+                    <!--<ImageView-->
+                        <!--android:src="@mipmap/ic_home_agree"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content" />-->
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/item_first_fragment_tv_agree"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content" />-->
+
+                <!--</LinearLayout>-->
+
+            <!--</RelativeLayout>-->
+            <!--<LinearLayout-->
+                <!--android:layout_above="@id/rv_xxx"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+                <!--<TextView-->
+                    <!--android:id="@+id/item_first_fragment_tv_title"-->
+                    <!--android:text="啦啦啦"-->
+                    <!--android:textSize="15sp"-->
+                    <!--android:textColor="#000"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--/>-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/item_first_fragment_tv_content"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--/>-->
+
+                <!--<View-->
+                    <!--android:background="@color/cardview_dark_background"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="0.3dp"/>-->
+            <!--</LinearLayout>-->
+        <!--</RelativeLayout>-->
+
+    <!--</android.support.v7.widget.CardView>-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/item_first_fragment_iv_big"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/two_four_zen_dp"
+            android:src="@mipmap/ic_launcher"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/one_eight_five_dp"
+            android:background="@color/colorWhiteThree"
+            >
+            <TextView
+                android:id="@+id/item_first_fragment_tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/one_two_sp"
+                android:layout_marginTop="@dimen/ten"
+                android:layout_marginLeft="@dimen/five_dp"
+                android:textColor="@color/colorDick"
+                />
+            <TextView
+                android:id="@+id/item_first_fragment_tv_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/one_two_sp"
+                android:layout_marginTop="@dimen/five_dp"
+                android:layout_marginLeft="@dimen/five_dp"
+                />
+
+            <View
+            android:background="@color/cardview_dark_background"
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/four_ten_dp"
+                android:layout_marginTop="@dimen/five_dp"
+                android:layout_marginLeft="@dimen/five_dp"
+                >
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="@dimen/two_five_dp"
+                    android:layout_height="@dimen/two_five_dp"
+                    android:layout_marginTop="@dimen/five_dp"
+                    android:id="@+id/item_first_fragment_iv_small"
+                    android:src="@mipmap/ic_launcher"
+                    />
+
+                <TextView
+                    android:id="@+id/item_first_fragment_tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/one_one_sp"
+                    android:layout_toRightOf="@+id/item_first_fragment_iv_small"
+                    android:layout_marginLeft="@dimen/ten"
+                    android:layout_centerVertical="true"
+                    />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/ten"
+                    >
+                    <ImageView
+                        android:layout_width="@dimen/ten_five_dp"
+                        android:layout_height="@dimen/ten_five_dp"
+                        android:src="@mipmap/ic_home_agree"
+                        />
+                    <TextView
+                        android:id="@+id/item_first_fragment_tv_agree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

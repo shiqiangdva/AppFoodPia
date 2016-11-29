@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">AppFoodPie</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tv_fragment_eat">逛吃</string>
+    <string name="rbt_one">食物百科</string>
+    <string name="rbt_two">逛吃</string>
+    <string name="rbt_three">我的</string>
+    <string name="fragment_enc_tv">查询食物信息</string>
+    <string name="fragment_enc_btn_search">请输入食物名称</string>
+    <string name="fragment_enc_btn_com">搜索对比</string>
+    <string name="fragment_enc_btn_scan">扫码对比</string>
+    <string name="fragment_enc_tv_food">食物分类</string>
+    <string name="fragment_enc_btn_ana">饮食分析</string>
+    <string name="fragment_my_tv_myTv">我的</string>
+    <string name="fragment_my_btn">点击登录</string>
+    <string name="fragment_my_tv_photo">我的照片</string>
+    <string name="fragment_my_tv_only">我的收藏</string>
+    <string name="fragment_my_tv_updata">上传食物数据</string>
+    <string name="fragment_my_tv_order">我的订单</string>
+</resources>

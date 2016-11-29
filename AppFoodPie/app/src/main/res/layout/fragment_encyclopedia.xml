@@ -1,0 +1,237 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:descendantFocusability="blocksDescendants"
+    tools:context="com.kevin.appfoodpie.fragments.EncyclopediaFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+        <!--ScrollView中只能嵌套一个布局-->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--三个Button及以上的控件在 RelativeLayout 中-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/img_home_bg"
+                >
+
+                <ImageView
+                    android:id="@+id/library_title_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_home_logo"
+                    android:layout_margin="@dimen/ten_five_dp"
+                    android:layout_centerHorizontal="true"/>
+
+                <!--搜索框的文字-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fragment_enc_tv"
+                    android:textSize="@dimen/ten_eight"
+                    android:textColor="@color/colorWhite"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/library_title_iv"
+                    android:layout_marginTop="@dimen/three_zen"
+                    />
+
+                <!--搜索框-->
+                <Button
+                    android:id="@+id/library_btn_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/ic_home_search"
+                    android:background="@drawable/shape_search"
+                    android:text="@string/fragment_enc_btn_search"
+                    android:textColor="@color/colorChen"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/ten"
+                    />
+
+                <!--三个Button-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/colorWhite_two"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@color/colorWhite"
+                        android:layout_margin="@dimen/ten"
+                        >
+                        <Button
+                            android:id="@+id/library_btn_analysis"
+                            android:layout_width="@dimen/zen"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:drawableTop="@drawable/analysis_bg"
+                            android:text="@string/fragment_enc_btn_ana"
+                            android:background="@null"
+                            />
+                        <include layout="@layout/line_vertical"/>
+                        <Button
+                            android:id="@+id/library_btn_compare"
+                            android:layout_width="@dimen/zen"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:drawableTop="@drawable/compare_bg"
+                            android:text="@string/fragment_enc_btn_com"
+                            android:background="@null"
+                            />
+                        <include layout="@layout/line_vertical"/>
+                        <Button
+                            android:id="@+id/library_btn_scanCompare"
+                            android:layout_width="@dimen/zen"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:drawableTop="@drawable/scan_compare_bg"
+                            android:text="@string/fragment_enc_btn_scan"
+                            android:background="@null"
+                            />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <!--第一个卡片布局-->
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/ten"
+                >
+
+                <!--android:layout_centerHorizontal="true"
+                相当于gravity居中-->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:background="@mipmap/ic_home_category_bg"
+                    />
+
+                <TextView
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/ten"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fragment_enc_tv_food"
+                    android:textSize="@dimen/ten_five"
+                    />
+
+                <GridView
+                    android:id="@+id/library_gird1"
+                    android:background="#FFFFFF"
+                    android:layout_marginTop="@dimen/five_zen"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/four_four_zen"
+                    android:layout_centerHorizontal="true"
+                    android:numColumns="3"
+                    android:horizontalSpacing="@dimen/two_ten"
+                    android:verticalSpacing="@dimen/three_ten"
+                    android:scrollbars="none"
+                    android:gravity="center"
+                    >
+                </GridView>
+            </RelativeLayout>
+
+            <!--第二个卡片布局-->
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/ten"
+                >
+
+                <!--android:layout_centerHorizontal="true"
+                相当于gravity居中-->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:background="@mipmap/ic_home_category_bg"
+                    />
+
+                <TextView
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/ten"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fragment_enc_tv_food"
+                    android:textSize="@dimen/ten_five"
+                    />
+
+                <GridView
+                    android:id="@+id/library_gird2"
+                    android:background="#FFFFFF"
+                    android:layout_marginTop="@dimen/five_zen"
+                    android:layout_width="match_parent"
+                    android:layout_height="440dp"
+                    android:layout_centerHorizontal="true"
+                    android:numColumns="3"
+                    android:horizontalSpacing="@dimen/two_ten"
+                    android:verticalSpacing="@dimen/three_ten"
+                    android:scrollbars="none"
+                    android:gravity="center"
+                    >
+                </GridView>
+            </RelativeLayout>
+
+            <!--第三个卡片布局-->
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/ten"
+                >
+
+                <!--android:layout_centerHorizontal="true"
+                相当于gravity居中-->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:background="@mipmap/ic_home_category_bg"
+                    />
+
+                <TextView
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/ten"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fragment_enc_tv_food"
+                    android:textSize="@dimen/ten_five"
+                    />
+
+                <GridView
+                    android:id="@+id/library_gird3"
+                    android:background="#FFFFFF"
+                    android:layout_marginTop="@dimen/five_zen"
+                    android:layout_width="match_parent"
+                    android:layout_height="440dp"
+                    android:layout_centerHorizontal="true"
+                    android:numColumns="3"
+                    android:horizontalSpacing="@dimen/two_ten"
+                    android:verticalSpacing="@dimen/three_ten"
+                    android:scrollbars="none"
+                    android:gravity="center"
+                    >
+                </GridView>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

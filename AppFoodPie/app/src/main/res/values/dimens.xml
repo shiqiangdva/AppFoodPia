@@ -1,0 +1,35 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fragment_eat_rl_height">0dp</dimen>
+    <dimen name="tv_tvsize">20sp</dimen>
+    <dimen name="iv_margin">10dp</dimen>
+    <dimen name="tab_fragment_eat">0dp</dimen>
+    <dimen name="vp_fragment_eat">0dp</dimen>
+    <dimen name="ten_eight">18sp</dimen>
+    <dimen name="three_zen">30dp</dimen>
+    <dimen name="ten">10dp</dimen>
+    <dimen name="two_ten">20dp</dimen>
+    <dimen name="three_ten">30dp</dimen>
+    <dimen name="four_four_zen">440dp</dimen>
+    <dimen name="ten_five">15sp</dimen>
+    <dimen name="zen">0dp</dimen>
+    <dimen name="five_zen">50dp</dimen>
+    <dimen name="ten_five_dp">15dp</dimen>
+    <dimen name="ten_five_sp">15sp</dimen>
+    <dimen name="two_eight_zen_dp">280dp</dimen>
+    <dimen name="one_zen_zen">100dp</dimen>
+    <dimen name="two_five_zen_dp">250dp</dimen>
+    <dimen name="two_four_zen_dp">240dp</dimen>
+    <dimen name="one_eight_five_dp">185dp</dimen>
+    <dimen name="five_dp">5dp</dimen>
+    <dimen name="one_two_sp">12sp</dimen>
+    <dimen name="four_ten_dp">40dp</dimen>
+    <dimen name="two_five_dp">25dp</dimen>
+    <dimen name="one_one_sp">11sp</dimen>
+    <dimen name="two_zen_zen_dp">200dp</dimen>
+    <dimen name="one_two">12dp</dimen>
+    <dimen name="one_four_sp">14sp</dimen>
+
+</resources>

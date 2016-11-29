@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--食物百科: 扫码对比-->
+    <item android:drawable="@mipmap/ic_home_scan_compare_select" android:state_pressed="true" />
+    <item android:drawable="@mipmap/ic_home_scan_compare" />
+</selector>

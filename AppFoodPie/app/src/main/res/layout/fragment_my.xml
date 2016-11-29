@@ -1,0 +1,204 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="9"
+    tools:context="com.kevin.appfoodpie.fragments.MyFragment">
+
+    <RelativeLayout
+        android:layout_weight="3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zen"
+        android:background="@mipmap/img_my_bg">
+
+        <TextView
+            android:id="@+id/tv_my"
+            android:layout_marginTop="@dimen/ten_five_dp"
+            android:layout_centerHorizontal="true"
+            android:textColor="#fff"
+            android:textSize="@dimen/ten_five_sp"
+            android:text="@string/fragment_my_tv_myTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_my"
+            android:layout_below="@id/tv_my"
+            android:layout_marginTop="@dimen/ten"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/img_default_avatar"
+            android:layout_width="@dimen/one_zen_zen"
+            android:layout_height="@dimen/one_zen_zen" />
+
+        <Button
+            android:id="@+id/fragment_my_btn"
+            android:layout_below="@id/iv_my"
+            android:text="@string/fragment_my_btn"
+            android:textSize="@dimen/ten_five_sp"
+            android:textColor="#fff"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/shape_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ten"/>
+
+        <ImageView
+            android:id="@+id/fragment_my_set_img"
+            android:layout_margin="@dimen/ten"
+            android:src="@mipmap/ic_my_setting"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zen"
+        android:layout_weight="4"
+        android:background="@color/colorWhite"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/my_photo_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zen"
+            android:layout_marginLeft="@dimen/two_ten"
+            android:layout_marginRight="@dimen/two_ten"
+            android:layout_weight="1"
+            android:background="@color/colorWhite"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/two_ten"
+                android:src="@mipmap/ic_my_photo" />
+
+            <TextView
+                android:layout_width="@dimen/two_eight_zen_dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/fragment_my_tv_photo" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/ic_arrow_right_normal" />
+
+
+        </LinearLayout>
+
+        <View
+            android:background="@color/colorDividedLine"
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"/>
+
+
+        <LinearLayout
+            android:id="@+id/my_collection_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zen"
+            android:layout_marginLeft="@dimen/two_ten"
+            android:layout_marginRight="@dimen/two_ten"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/two_ten"
+                android:src="@mipmap/ic_my_collect" />
+
+            <TextView
+                android:layout_width="@dimen/two_eight_zen_dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/fragment_my_tv_only" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/ic_arrow_right_normal" />
+
+        </LinearLayout>
+
+        <View
+            android:background="@color/colorDividedLine"
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"/>
+
+
+        <LinearLayout
+            android:id="@+id/upload_data_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zen"
+            android:layout_marginLeft="@dimen/two_ten"
+            android:layout_marginRight="@dimen/two_ten"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/two_ten"
+                android:src="@mipmap/ic_my_upload" />
+
+            <TextView
+                android:layout_width="@dimen/two_eight_zen_dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/fragment_my_tv_updata" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/ic_arrow_right_normal" />
+
+        </LinearLayout>
+
+        <View
+            android:background="@color/colorDividedLine"
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"/>
+
+        <LinearLayout
+            android:id="@+id/my_orders_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zen"
+            android:layout_marginLeft="@dimen/two_ten"
+            android:layout_marginRight="@dimen/two_ten"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/two_ten"
+                android:src="@mipmap/ic_my_order" />
+
+            <TextView
+                android:layout_width="@dimen/two_eight_zen_dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/fragment_my_tv_order" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/ic_arrow_right_normal" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

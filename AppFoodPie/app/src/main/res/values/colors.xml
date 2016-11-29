@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <!--Radio选中与没被选中的颜色-->
+    <color name="colorIsChecked">#e25557</color>
+    <color name="colorNotChecked">#9e9595</color>
+
+    <!--分隔线的颜色-->
+    <color name="colorDividedLine">#9b9898</color>
+
+    <color name="colorWhite">#ffffff</color>
+
+    <color name="colorChen">#FFA500</color>
+
+    <color name="colorWhite_two">#f1f7f1</color>
+
+    <color name="colorDick">#000</color>
+
+    <color name="colorWhiteThree">#fff</color>
+
+    <color name="colorWhiteFour">#f1f1f1</color>
+
+</resources>
