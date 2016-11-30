@@ -31,5 +31,7 @@
     <dimen name="two_zen_zen_dp">200dp</dimen>
     <dimen name="one_two">12dp</dimen>
     <dimen name="one_four_sp">14sp</dimen>
+    <dimen name="five_five_dp">55dp</dimen>
+    <dimen name="one_eight_sp">18sp</dimen>
 
 </resources>

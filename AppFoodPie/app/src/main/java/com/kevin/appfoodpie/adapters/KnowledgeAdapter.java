@@ -27,15 +27,10 @@ public class KnowledgeAdapter extends BaseAdapter{
     private List<KnowledgeBean.FeedsBean> data;
     private Context context;
 
-    private MyClick myClick;
-
     public static final int TYPE_ONE = 0;
     public static final int TYPE_TWO = 1;
     public static final int TYPE_COUNT = 2;
 
-    public void setMyClick(MyClick myClick) {
-        this.myClick = myClick;
-    }
 
     public KnowledgeAdapter(Context context) {
         this.context = context;
@@ -43,7 +38,8 @@ public class KnowledgeAdapter extends BaseAdapter{
     }
 
     public void setData(List<KnowledgeBean.FeedsBean> data) {
-        this.data.addAll(data);
+//        this.data.addAll(data);
+        this.data = data;
         notifyDataSetChanged();
     }
 
@@ -113,7 +109,7 @@ public class KnowledgeAdapter extends BaseAdapter{
                 oneViewHolder.tv_item_one_soure.setText(data.get(position).getSource());
                 oneViewHolder.tv_item_one_tail.setText(data.get(position).getTail());
                 Picasso.with(context).load(data.get(position).getImages().get(0)).into(oneViewHolder.img_item_one);
-                myClick.ListenerList(data.get(position).getLink());
+
 
                 break;
             case TYPE_TWO:
@@ -125,7 +121,7 @@ public class KnowledgeAdapter extends BaseAdapter{
                 twoViewHolder.item_two_tvTitle.setText(data.get(position).getTitle());
                 twoViewHolder.item_two_tvSoure.setText(data.get(position).getSource());
                 twoViewHolder.item_two_tvTail.setText(data.get(position).getTail());
-                myClick.ListenerList(data.get(position).getLink());
+
 
                 break;
             default:

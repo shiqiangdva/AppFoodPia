@@ -28,8 +28,8 @@
             android:layout_marginTop="@dimen/ten"
             android:layout_centerHorizontal="true"
             android:src="@mipmap/img_default_avatar"
-            android:layout_width="@dimen/one_zen_zen"
-            android:layout_height="@dimen/one_zen_zen" />
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
 
         <Button
             android:id="@+id/fragment_my_btn"

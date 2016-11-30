@@ -39,13 +39,13 @@
         android:id="@+id/evaluation_web"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="8" />
+        android:layout_weight="8.2" />
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="0.8"
         android:background="#fff"
         android:orientation="horizontal">
 
@@ -58,11 +58,13 @@
             android:gravity="center">
 
             <ImageView
+                android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_photo_share"
                 android:layout_gravity="center_vertical"/>
             <TextView
+                android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="分享"
@@ -77,11 +79,13 @@
             android:gravity="center">
 
             <ImageView
+                android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_news_keep_default"
                 android:layout_gravity="center_vertical"/>
             <TextView
+                android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="收藏"

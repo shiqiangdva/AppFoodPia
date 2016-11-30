@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="12">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/five_five_dp"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/my_login_return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:background="@null"
+            android:src="@mipmap/ic_back_dark_center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/login"
+            android:textColor="@color/colorDick"
+            android:textSize="@dimen/one_eight_sp" />
+    </LinearLayout>
+
+    <View
+        android:background="@color/colorDividedLine"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/ten"
+        android:layout_weight="5"
+        android:gravity="bottom"
+        android:text="@string/not_in_login" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/my_login_qq"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawableTop="@mipmap/ic_login_qq"
+            android:gravity="center"
+            android:text="@string/qq"
+            android:layout_margin="@dimen/ten"
+            />
+        <Button
+            android:id="@+id/my_login_wechat"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawableTop="@mipmap/ic_login_wechat"
+            android:gravity="center"
+            android:text="@string/wei_xin"
+            android:layout_margin="@dimen/ten"
+            />
+        <Button
+            android:id="@+id/my_login_weibo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawableTop="@mipmap/ic_login_weibo"
+            android:gravity="center"
+            android:text="@string/wei_bo"
+            android:layout_margin="@dimen/ten"
+            />
+        <Button
+            android:id="@+id/my_login_boohee"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawableTop="@mipmap/ic_login_boohee"
+            android:gravity="center"
+            android:text="@string/bo_he"
+            android:layout_margin="@dimen/ten"
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:src="@mipmap/img_tomato_bread"
+        android:layout_marginTop="@dimen/three_ten"/>
+
+</LinearLayout>

@@ -5,5 +5,7 @@ package com.kevin.appfoodpie.values;
  */
 
 public interface MyListener {
-    void FirstClick(String link, String card_image, String title, String publisher, String publisher_avatar, String description, int like_ct);
+    void FirstClick(String link, String card_image, String title,
+                    String publisher, String publisher_avatar,
+                    String description, int like_ct,int types);
 }

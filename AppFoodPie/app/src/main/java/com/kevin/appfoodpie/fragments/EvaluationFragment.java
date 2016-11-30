@@ -114,7 +114,7 @@ public class EvaluationFragment extends BaseFragment {
         mPullRefreshListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String url = lol.get(position).getLink();
+                String url = lol.get(position-1).getLink();
                 Intent intent = new Intent(getActivity(), WebSecondActivity.class);
                 intent.putExtra("url",url);
                 startActivity(intent);
@@ -126,30 +126,6 @@ public class EvaluationFragment extends BaseFragment {
 
 
     private void StartUrl(String url) {
-//        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-//        StringRequest stringRequest = new StringRequest(UrlValue.EVA_FRAGMENT_URL, new Response.Listener<String>() {
-//            @Override
-//            public void onResponse(String response) {
-//                Gson gson = new Gson();
-//                bean = gson.fromJson(response,EvaluationBean.class);
-////                adapter = new EvaluationAdapter(getContext());
-////                adapter.setEvaluationBean(bean);
-//                lol = bean.getFeeds();
-//                adapter.setData(lol);
-//
-////                listView.addHeaderView(viewHead);
-////
-////                listView.setAdapter(adapter);
-//
-//
-//            }
-//        }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//
-//            }
-//        });
-//        requestQueue.add(stringRequest);
 
         NetHelper.MyRequest(url, EvaluationBean.class, new NetListener<EvaluationBean>() {
             @Override

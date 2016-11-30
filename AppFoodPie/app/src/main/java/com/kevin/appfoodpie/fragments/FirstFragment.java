@@ -142,8 +142,8 @@ public class FirstFragment extends BaseFragment implements MyListener {
 
     @Override
     public void FirstClick(String link, String card_image, String title,
-                String publisher, String publisher_avatar, String description, int like_ct) {
-        if (card_image.isEmpty()){
+                String publisher, String publisher_avatar, String description, int like_ct,int types) {
+        if (types == 6){
             Intent intent = new Intent(getActivity(), WebActivity.class);
             intent.putExtra("link",link);
             startActivity(intent);

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_library_more"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--标题栏-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/five_five_dp"
+        android:orientation="horizontal"
+        >
+        <LinearLayout
+            android:id="@+id/library_more_return_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/library_more_return"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_back_dark_center"
+                android:background="@null"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                />
+            <TextView
+                android:id="@+id/library_more_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="XXX类"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:textColor="@color/colorDick"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/library_more_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="全部"
+            android:drawableRight="@mipmap/ic_food_arrow_ordering"
+            android:background="@null"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorDividedLine"/>
+
+
+    <!--营养素排行-->
+    <LinearLayout
+        android:id="@+id/library_more_nutritional_element_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="营养素排行"
+            android:textColor="@color/colorDick"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            />
+        <ImageButton
+            android:id="@+id/library_more_nutritional_element_ib"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:src="@mipmap/ic_food_arrow_ordering"
+            android:background="@null"
+            />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorDividedLine"/>
+
+    <!--详细数据 用 ListView 进行显示-->
+    <com.github.jdsjlzx.recyclerview.LRecyclerView
+        android:id="@+id/library_more_rv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+
+
+</LinearLayout>

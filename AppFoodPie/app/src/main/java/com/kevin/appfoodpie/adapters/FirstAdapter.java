@@ -96,7 +96,7 @@ public class FirstAdapter extends RecyclerView.Adapter{
                 myListener.FirstClick(data.get(position).getLink(),data.get(position).getCard_image(),
                         data.get(position).getTitle(),data.get(position).getPublisher(),
                         data.get(position).getPublisher_avatar(),data.get(position).getDescription(),
-                        data.get(position).getLike_ct());
+                        data.get(position).getLike_ct(),data.get(position).getContent_type());
             }
         });
 

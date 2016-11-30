@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class KnowledgeFragment extends BaseFragment implements MyClick {
+public class KnowledgeFragment extends BaseFragment{
 
 //    private KnowledgeBean bean;
 //    private ListView listView;
@@ -83,7 +83,9 @@ public class KnowledgeFragment extends BaseFragment implements MyClick {
         mPullToRefreshListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                adapter.setMyClick(this);
+                Intent intent = new Intent(getActivity(),WebSecondActivity.class);
+                intent.putExtra("url",lol.get(position-1).getLink());
+                startActivity(intent);
             }
         });
 
@@ -133,7 +135,16 @@ public class KnowledgeFragment extends BaseFragment implements MyClick {
         NetHelper.MyRequest(u, KnowledgeBean.class, new NetListener<KnowledgeBean>() {
             @Override
             public void successListener(KnowledgeBean response) {
-                lol = response.getFeeds();
+//                lol = response.getFeeds();
+
+                List<KnowledgeBean.FeedsBean> mid = response.getFeeds();
+                if (lol == null) {
+                    lol = mid;
+                } else {
+                    for (int i = 0; i < mid.size(); i++) {
+                        lol.add(mid.get(i));
+                    }
+                }
                 adapter.setData(lol);
             }
 
@@ -160,13 +171,6 @@ public class KnowledgeFragment extends BaseFragment implements MyClick {
         KnowledgeFragment fragment = new KnowledgeFragment();
         fragment.setArguments(args);
         return fragment;
-    }
-
-    @Override
-    public void ListenerList(String url) {
-        Intent intent = new Intent(getActivity(), WebSecondActivity.class);
-        intent.putExtra("url",url);
-        startActivity(intent);
     }
 
     // 上啦加载的异步任务

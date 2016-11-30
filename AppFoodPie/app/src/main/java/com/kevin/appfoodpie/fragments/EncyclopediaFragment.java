@@ -1,11 +1,14 @@
 package com.kevin.appfoodpie.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.android.volley.RequestQueue;
@@ -14,6 +17,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+import com.kevin.appfoodpie.LibraryMoreActivity;
 import com.kevin.appfoodpie.R;
 import com.kevin.appfoodpie.adapters.GirdOneAdapter;
 import com.kevin.appfoodpie.adapters.GirdThreeAdapter;
@@ -77,23 +81,62 @@ public class EncyclopediaFragment extends BaseFragment {
 
     private void ThreeData(String response) {
         Gson gson = new Gson();
-        data = gson.fromJson(response,EncyclopediaBean.class);
+        data = gson.fromJson(response, EncyclopediaBean.class);
         threeAdapter.setBean(data);
         gvThree.setAdapter(threeAdapter);
+        gvThree.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // 获取GridView的点击id,作为网址拼接来使用
+
+                Intent intent = new Intent(getActivity(), LibraryMoreActivity.class);
+                intent.putExtra("name",data.getGroup().get(2).getCategories().get(position).getName());
+                intent.putExtra("key",data.getGroup().get(2).getKind());// group
+                intent.putExtra("id",data.getGroup().get(2).getCategories().get(position).getId()+"");//1
+                Log.d("aaa", "urlId:" + data.getGroup().get(2).getCategories().get(position).getId());
+                startActivity(intent);
+            }
+        });
     }
 
     private void TwoData(String response) {
         Gson gson = new Gson();
-        data = gson.fromJson(response,EncyclopediaBean.class);
+        data = gson.fromJson(response, EncyclopediaBean.class);
         twoAdapter.setBean(data);
         gvTwo.setAdapter(twoAdapter);
+        gvTwo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // 获取GridView的点击id,作为网址拼接来使用
+
+                Intent intent = new Intent(getActivity(), LibraryMoreActivity.class);
+                intent.putExtra("name",data.getGroup().get(1).getCategories().get(position).getName());
+                intent.putExtra("key",data.getGroup().get(1).getKind());// group
+                intent.putExtra("id",data.getGroup().get(1).getCategories().get(position).getId()+"");//1
+                Log.d("aaa", "urlId:" + data.getGroup().get(1).getCategories().get(position).getId());
+                startActivity(intent);
+            }
+        });
     }
 
     private void OneData(String response) {
         Gson gson = new Gson();
-        data = gson.fromJson(response,EncyclopediaBean.class);
+        data = gson.fromJson(response, EncyclopediaBean.class);
         oneAdapter.setBean(data);
         gvOne.setAdapter(oneAdapter);
+        gvOne.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // 获取GridView的点击id,作为网址拼接来使用
+
+                Intent intent = new Intent(getActivity(), LibraryMoreActivity.class);
+                intent.putExtra("name",data.getGroup().get(0).getCategories().get(position).getName());
+                intent.putExtra("key",data.getGroup().get(0).getKind());// group
+                intent.putExtra("id",data.getGroup().get(0).getCategories().get(position).getId()+"");//1
+                Log.d("aaa", "urlId:" + data.getGroup().get(0).getCategories().get(position).getId());
+                startActivity(intent);
+            }
+        });
     }
 
     private void initClass() {
