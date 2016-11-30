@@ -1,6 +1,7 @@
 package com.kevin.appfoodpie.fragments;
 
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.android.volley.RequestQueue;
@@ -17,6 +19,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.kevin.appfoodpie.R;
+import com.kevin.appfoodpie.WebSecondActivity;
 import com.kevin.appfoodpie.adapters.EvaluationAdapter;
 import com.kevin.appfoodpie.beans.EvaluationBean;
 import com.kevin.appfoodpie.beans.LBBean;
@@ -108,6 +111,15 @@ public class EvaluationFragment extends BaseFragment {
                 new GetDataTask().execute();
             }
         });
+        mPullRefreshListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String url = lol.get(position).getLink();
+                Intent intent = new Intent(getActivity(), WebSecondActivity.class);
+                intent.putExtra("url",url);
+                startActivity(intent);
+            }
+        });
 
 
     }
@@ -142,7 +154,16 @@ public class EvaluationFragment extends BaseFragment {
         NetHelper.MyRequest(url, EvaluationBean.class, new NetListener<EvaluationBean>() {
             @Override
             public void successListener(EvaluationBean response) {
-                lol = response.getFeeds();
+//                lol = response.getFeeds();
+
+                List<EvaluationBean.FeedsBean> mid = response.getFeeds();
+                if (lol == null) {
+                    lol = mid;
+                } else {
+                    for (int i = 0; i < mid.size(); i++) {
+                        lol.add(mid.get(i));
+                    }
+                }
                 adapter.setData(lol);
             }
 

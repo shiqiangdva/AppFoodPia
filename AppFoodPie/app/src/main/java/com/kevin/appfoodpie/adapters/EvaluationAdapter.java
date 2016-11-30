@@ -30,7 +30,8 @@ public class EvaluationAdapter extends BaseAdapter{
     }
 
     public void setData(List<EvaluationBean.FeedsBean> data) {
-        this.data.addAll(data);
+//        this.data.addAll(data);
+        this.data = data;
         notifyDataSetChanged();
     }
 

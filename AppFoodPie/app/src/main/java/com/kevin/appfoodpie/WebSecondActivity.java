@@ -5,29 +5,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebView;
 
-import com.kevin.appfoodpie.R;
+public class WebSecondActivity extends BaseActivity {
 
-public class WebActivity extends BaseActivity {
     private WebView webView;
-    private String url;
 
     @Override
     int setLayout() {
-        return R.layout.activity_web;
+        return R.layout.activity_web_second;
     }
 
     @Override
     void initView() {
-        // 绑定webView
-        webView = (WebView) findViewById(R.id.aty_web_show);
+        webView = (WebView) findViewById(R.id.evaluation_web);
     }
 
     @Override
     void initData() {
         Intent intent = getIntent();
-        url = intent.getStringExtra("link");
+        String url = intent.getStringExtra("url");
         webView.loadUrl(url);
     }
-
-
 }

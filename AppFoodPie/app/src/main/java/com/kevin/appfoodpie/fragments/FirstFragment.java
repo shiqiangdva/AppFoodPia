@@ -4,6 +4,7 @@ package com.kevin.appfoodpie.fragments;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.view.View;
 
 import com.android.volley.VolleyError;
@@ -142,7 +143,7 @@ public class FirstFragment extends BaseFragment implements MyListener {
     @Override
     public void FirstClick(String link, String card_image, String title,
                 String publisher, String publisher_avatar, String description, int like_ct) {
-        if (!link.isEmpty()){
+        if (card_image.isEmpty()){
             Intent intent = new Intent(getActivity(), WebActivity.class);
             intent.putExtra("link",link);
             startActivity(intent);
@@ -154,6 +155,7 @@ public class FirstFragment extends BaseFragment implements MyListener {
             intent.putExtra("publisher_avatar",publisher_avatar);
             intent.putExtra("publisher",publisher);
             intent.putExtra("like_ct",like_ct);
+//            Log.d("fff", "like_ct:" + like_ct);
             startActivity(intent);
         }
     }

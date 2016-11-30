@@ -1,12 +1,14 @@
 package com.kevin.appfoodpie.fragments;
 
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.android.volley.RequestQueue;
@@ -16,9 +18,11 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.kevin.appfoodpie.R;
+import com.kevin.appfoodpie.WebSecondActivity;
 import com.kevin.appfoodpie.adapters.KnowledgeAdapter;
 import com.kevin.appfoodpie.beans.KnowledgeBean;
 import com.kevin.appfoodpie.values.MyApp;
+import com.kevin.appfoodpie.values.MyClick;
 import com.kevin.appfoodpie.values.NetHelper;
 import com.kevin.appfoodpie.values.NetListener;
 import com.kevin.appfoodpie.values.UrlValue;
@@ -33,11 +37,12 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class KnowledgeFragment extends BaseFragment{
+public class KnowledgeFragment extends BaseFragment implements MyClick {
 
 //    private KnowledgeBean bean;
 //    private ListView listView;
     private KnowledgeAdapter adapter;
+
 
     /**
      * 上拉刷新的控件
@@ -57,7 +62,6 @@ public class KnowledgeFragment extends BaseFragment{
 //        listView = (ListView) view.findViewById(R.id.lv_fragment_knowledge);
         mPullToRefreshListView = (PullToRefreshListView) view.findViewById(R.id.lv_fragment_knowledge);
         mPullToRefreshListView.setMode(Mode.BOTH);
-
     }
 
     @Override
@@ -68,14 +72,20 @@ public class KnowledgeFragment extends BaseFragment{
         // 获取网络数据
         GetData();
 
-
     }
 
     private void GetData() {
 
         StartUrl(urlAll(1));
 
+
         mPullToRefreshListView.setAdapter(adapter);
+        mPullToRefreshListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                adapter.setMyClick(this);
+            }
+        });
 
         mPullToRefreshListView.setOnRefreshListener(new OnRefreshListener2<ListView>() {
             @Override
@@ -150,6 +160,13 @@ public class KnowledgeFragment extends BaseFragment{
         KnowledgeFragment fragment = new KnowledgeFragment();
         fragment.setArguments(args);
         return fragment;
+    }
+
+    @Override
+    public void ListenerList(String url) {
+        Intent intent = new Intent(getActivity(), WebSecondActivity.class);
+        intent.putExtra("url",url);
+        startActivity(intent);
     }
 
     // 上啦加载的异步任务

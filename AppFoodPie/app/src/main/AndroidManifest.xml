@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SecondActivity" />
-        <activity android:name=".WebActivity"></activity>
+        <activity android:name=".WebActivity" />
+        <activity android:name=".WebSecondActivity"></activity>
     </application>
 
 </manifest>
