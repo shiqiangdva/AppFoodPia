@@ -72,31 +72,13 @@ public class FirstFragment extends BaseFragment implements MyListener {
     }
 
     private void getData() {
-//        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-//        StringRequest stringRequest = new StringRequest(UrlValue.FIRST_FRAGMENT_URL, new Response.Listener<String>() {
-//            @Override
-//            public void onResponse(String response) {
-//                Gson gson = new Gson();
-//                firstBean = gson.fromJson(response,FirstBean.class);
-//                // 设置适配器绑定适配器
-//                adapter.setFirstBean(firstBean);
-//                recyclerView.setAdapter(adapter);
-//                StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(2,1);
-//                recyclerView.setLayoutManager(manager);
-//
-//            }
-//        }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//
-//            }
-//        });
-//        requestQueue.add(stringRequest);
+
         StartUrl(urlAll(1));
         adapter.setMyListener(this);
         // 系统的Adapter
         lRecyclerViewAdapter = new LRecyclerViewAdapter(adapter);
         recyclerView.setAdapter(lRecyclerViewAdapter);
+
 
         StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(2, 1);
         recyclerView.setLayoutManager(manager);

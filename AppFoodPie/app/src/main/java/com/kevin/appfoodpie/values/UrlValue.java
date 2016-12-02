@@ -5,6 +5,7 @@ package com.kevin.appfoodpie.values;
  */
 
 public class UrlValue {
+    public static final String POP = "http://food.boohee.com/fb/v1/foods/sort_types";
     public static final String ENC_DATA_URL = "http://food.boohee.com/fb/v1/categories/list";
 
     public static final String LUN_BO = "http://api.liwushuo.com/v2/banners";
