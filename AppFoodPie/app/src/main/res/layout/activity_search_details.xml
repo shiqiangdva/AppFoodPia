@@ -1,57 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/activity_library_more"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_search_details"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.kevin.appfoodpie.SearchDetailsActivity">
 
-    <!--标题栏-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/five_five_dp"
+        android:layout_height="50dp"
         android:orientation="horizontal"
-        >
-        <LinearLayout
-            android:id="@+id/library_more_return_ll"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-            <ImageButton
-                android:id="@+id/library_more_return"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_back_dark_center"
-                android:background="@null"
-                android:layout_gravity="center"
-                android:layout_marginLeft="5dp"
-                />
-            <TextView
-                android:id="@+id/library_more_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="XXX类"
-                android:layout_gravity="center"
-                android:textSize="20sp"
-                android:textColor="@color/colorDick"
-                />
-        </LinearLayout>
+        android:background="#fff">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/library_more_all"
+        <ImageButton
+            android:id="@+id/search_return_more"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="全部"
-            android:drawableRight="@mipmap/ic_food_arrow_ordering"
-            android:background="@null"
             android:layout_gravity="center"
-            android:layout_marginRight="10dp"
+            android:layout_margin="5dp"
+            android:background="@null"
+            android:src="@mipmap/ic_back_dark_center" />
+
+        <EditText
+            android:id="@+id/search_edt_more"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="请输入食物名称"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/search_delete_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@mipmap/ic_clear"
+            android:background="@null"
             />
 
+        <ImageButton
+            android:id="@+id/search_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:background="@null"
+            android:src="@mipmap/ic_homepage_search" />
     </LinearLayout>
     <View
         android:layout_width="match_parent"
@@ -76,7 +73,7 @@
             android:layout_marginRight="5dp"
             />
         <ImageButton
-            android:id="@+id/library_more_nutritional_element_ib"
+            android:id="@+id/nutritional_more"
             android:layout_width="wrap_content"
             android:layout_height="45dp"
             android:src="@mipmap/ic_food_arrow_ordering"
@@ -89,11 +86,10 @@
         android:background="@color/colorDividedLine"/>
 
     <com.github.jdsjlzx.recyclerview.LRecyclerView
-        android:id="@+id/library_more_rv"
+        android:id="@+id/search_rv_more"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         />
-
 
 </LinearLayout>

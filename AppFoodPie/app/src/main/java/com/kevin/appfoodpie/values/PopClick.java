@@ -6,4 +6,5 @@ package com.kevin.appfoodpie.values;
 
 public interface PopClick {
     void PopListener(String pos);
+    void OtherListener(String data);
 }

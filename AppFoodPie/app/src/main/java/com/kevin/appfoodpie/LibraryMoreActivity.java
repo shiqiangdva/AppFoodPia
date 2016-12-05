@@ -326,4 +326,9 @@ public class LibraryMoreActivity extends BaseActivity implements View.OnClickLis
         adapter.clean();
         StartUrl(UrlMore(i,pos));
     }
+
+    @Override
+    public void OtherListener(String data) {
+
+    }
 }

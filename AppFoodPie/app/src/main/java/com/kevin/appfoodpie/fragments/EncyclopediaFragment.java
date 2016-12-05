@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 
 import com.android.volley.RequestQueue;
@@ -19,6 +20,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.kevin.appfoodpie.LibraryMoreActivity;
 import com.kevin.appfoodpie.R;
+import com.kevin.appfoodpie.SearchActivity;
 import com.kevin.appfoodpie.adapters.GirdOneAdapter;
 import com.kevin.appfoodpie.adapters.GirdThreeAdapter;
 import com.kevin.appfoodpie.adapters.GirdTwoAdapter;
@@ -33,7 +35,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EncyclopediaFragment extends BaseFragment {
+public class EncyclopediaFragment extends BaseFragment implements View.OnClickListener {
 
     private EncyclopediaBean data;
     private GridView gvOne;
@@ -42,6 +44,7 @@ public class EncyclopediaFragment extends BaseFragment {
     private GirdOneAdapter oneAdapter;
     private GirdTwoAdapter twoAdapter;
     private GirdThreeAdapter threeAdapter;
+    private Button btnSearch;
 
     @Override
     protected int setLayout() {
@@ -53,6 +56,7 @@ public class EncyclopediaFragment extends BaseFragment {
         gvOne = (GridView) view.findViewById(R.id.library_gird1);
         gvTwo = (GridView) view.findViewById(R.id.library_gird2);
         gvThree = (GridView) view.findViewById(R.id.library_gird3);
+        btnSearch = (Button) view.findViewById(R.id.library_btn_search);
     }
 
     @Override
@@ -61,6 +65,8 @@ public class EncyclopediaFragment extends BaseFragment {
         initClass();
         // 请求网络
         initUrl();
+
+        btnSearch.setOnClickListener(this);
     }
 
     private void initUrl() {
@@ -255,4 +261,13 @@ public class EncyclopediaFragment extends BaseFragment {
         threeAdapter = new GirdThreeAdapter(getContext());
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.library_btn_search:
+                Intent intent = new Intent(getActivity(), SearchActivity.class);
+                startActivity(intent);
+                break;
+        }
+    }
 }

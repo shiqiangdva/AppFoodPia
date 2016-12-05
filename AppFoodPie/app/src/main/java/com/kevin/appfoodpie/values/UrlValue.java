@@ -43,4 +43,11 @@ public class UrlValue {
     public static final String POPFOUR = "&page=";
     public static final String POPFIVE = "&order_asc=0";
 
+    public static final String SEARCHONE = "http://food.boohee.com/fb/v1/search?page=";
+    public static final String SEARCHTWO = "&order_asc=desc&q=";
+
+    public static final String SEARCHTHREE = "&order_by=";
+
+    public static final String TEN = "http://food.boohee.com/fb/v1/keywords?token=&user_key=&app_version=2.6&app_device=Android&os_version=5.1&phone_model=Google+Nexus+7+2013+-+5.1.0+-+API+22+-+1200x1920&channel=baidu";
+
 }

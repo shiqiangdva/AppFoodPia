@@ -2,7 +2,6 @@ package com.kevin.appfoodpie.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +10,6 @@ import android.widget.TextView;
 import com.kevin.appfoodpie.R;
 import com.kevin.appfoodpie.beans.PopBean;
 import com.kevin.appfoodpie.values.PopClick;
-
-import java.util.ArrayList;
 
 /**
  * Created by dllo on 16/12/2.
@@ -51,6 +48,7 @@ public class PopMoreAdapter extends RecyclerView.Adapter<PopMoreAdapter.PopViewH
             @Override
             public void onClick(View v) {
                 popClick.PopListener(data.getTypes().get(position).getIndex());
+                popClick.OtherListener(data.getTypes().get(position).getCode());
             }
         });
         holder.tv.setText(data.getTypes().get(position).getName());

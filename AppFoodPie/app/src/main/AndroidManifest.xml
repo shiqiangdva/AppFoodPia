@@ -23,7 +23,9 @@
         <activity android:name=".WebActivity" />
         <activity android:name=".WebSecondActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".LibraryMoreActivity"></activity>
+        <activity android:name=".LibraryMoreActivity" />
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".SearchDetailsActivity"></activity>
     </application>
 
 </manifest>
