@@ -35,5 +35,12 @@ public class UrlValue {
     public static final String FUCKTHREE = "&order_by=1&page=";
     public static final String FUCKFOUR = "&order_asc=0";
 //    "http://food.boohee.com/fb/v1/foods?kind=group&value=null&order_by=1&page=1&order_asc=0"
+//    "http://food.boohee.com/fb/v1/foods?kind=group&value=1(&sub_value=13)&order_by=1&page=1&order_asc=0"
+
+    public static final String POPONE = "http://food.boohee.com/fb/v1/foods?kind=";
+    public static final String POPTWO = "&value=";
+    public static final String POPTHREE = "&order_by=";
+    public static final String POPFOUR = "&page=";
+    public static final String POPFIVE = "&order_asc=0";
 
 }

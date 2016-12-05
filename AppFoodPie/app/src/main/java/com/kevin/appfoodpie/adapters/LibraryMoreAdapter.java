@@ -33,6 +33,7 @@ public class LibraryMoreAdapter extends RecyclerView.Adapter<LibraryMoreAdapter.
     }
 
     public void setData(List<LibraryMoreBean.FoodsBean> data) {
+//        this.data.clear();
         this.data.addAll(data);
         notifyDataSetChanged();
     }

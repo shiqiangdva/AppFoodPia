@@ -2,6 +2,7 @@ package com.kevin.appfoodpie.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import com.kevin.appfoodpie.R;
 import com.kevin.appfoodpie.beans.PopBean;
+import com.kevin.appfoodpie.values.PopClick;
 
 import java.util.ArrayList;
 
@@ -20,6 +22,12 @@ public class PopMoreAdapter extends RecyclerView.Adapter<PopMoreAdapter.PopViewH
 
     private PopBean data;
     private Context context;
+    private PopClick popClick;
+
+    public void setPopClick(PopClick popClick) {
+        this.popClick = popClick;
+        notifyDataSetChanged();
+    }
 
     public PopMoreAdapter(Context context) {
         this.context = context;
@@ -38,7 +46,13 @@ public class PopMoreAdapter extends RecyclerView.Adapter<PopMoreAdapter.PopViewH
     }
 
     @Override
-    public void onBindViewHolder(PopViewHolder holder, int position) {
+    public void onBindViewHolder(PopViewHolder holder, final int position) {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popClick.PopListener(data.getTypes().get(position).getIndex());
+            }
+        });
         holder.tv.setText(data.getTypes().get(position).getName());
     }
 
@@ -46,6 +60,7 @@ public class PopMoreAdapter extends RecyclerView.Adapter<PopMoreAdapter.PopViewH
     public int getItemCount() {
         return data != null ? data.getTypes().size() : 0;
     }
+
 
     class PopViewHolder extends RecyclerView.ViewHolder{
         private TextView tv;

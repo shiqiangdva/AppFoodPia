@@ -149,6 +149,7 @@ public class EncyclopediaFragment extends BaseFragment {
                 intent.putExtra("p",position);
                 intent.putExtra("popCount",data.getGroup().get(0).getCategories().get(position).getSub_category_count());
 
+
 //                SerInfo serInfo = new SerInfo();
 //                Bundle bundle = new Bundle();
 //                Intent ins = new Intent(getActivity(),LibraryMoreActivity.class);

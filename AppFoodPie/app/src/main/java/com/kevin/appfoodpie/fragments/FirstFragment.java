@@ -113,6 +113,7 @@ public class FirstFragment extends BaseFragment implements MyListener {
             public void successListener(FirstBean response) {
                 lol = response.getFeeds();
                 adapter.setData(lol);
+
             }
 
             @Override

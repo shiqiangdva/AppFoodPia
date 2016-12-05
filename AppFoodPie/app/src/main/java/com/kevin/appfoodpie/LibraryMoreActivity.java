@@ -8,12 +8,14 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -35,30 +37,36 @@ import com.kevin.appfoodpie.beans.LibraryMoreBean;
 import com.kevin.appfoodpie.beans.PopBean;
 import com.kevin.appfoodpie.values.NetHelper;
 import com.kevin.appfoodpie.values.NetListener;
+import com.kevin.appfoodpie.values.PopClick;
 import com.kevin.appfoodpie.values.SerInfo;
 import com.kevin.appfoodpie.values.UrlValue;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LibraryMoreActivity extends BaseActivity implements View.OnClickListener {
+public class LibraryMoreActivity extends BaseActivity implements View.OnClickListener, PopClick {
     private LRecyclerView recyclerView;
     private LRecyclerViewAdapter lRecyclerViewAdapter;
-    private List<LibraryMoreBean.FoodsBean> data;
+//    private List<LibraryMoreBean.FoodsBean> data;
     private LibraryMoreAdapter adapter;
     private int i = 1;
     private ImageButton imgBack;
     private TextView tvName;
     private String nameTv;
-    private PopupWindow popupWindow,popupWindowMore;
+    private PopupWindow popupWindow, popupWindowMore;
     private ArrayList<String> dataPop;
     private ListView listView;
-    
+
     private EncyclopediaBean bean;
     private Intent intent;
     private Button btnPop;
     private PopBean popBean;
     private ImageButton imgBtn;
+    private String urlG;
+    private String urlId;
+    private int count;
+    private int postion;
+    private ArrayList<Integer> countId;
 
     @Override
     int setLayout() {
@@ -85,13 +93,20 @@ public class LibraryMoreActivity extends BaseActivity implements View.OnClickLis
         // pop的Data
         popWinData();
 
+        // 大的pop的Data
+        popMoreData();
+
+
+    }
+
+    private void popMoreData() {
         /**
          *
          */
         popupWindowMore = new PopupWindow(this);
         popupWindowMore.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
         popupWindowMore.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-        View view = getLayoutInflater().inflate(R.layout.pop_rv,null);
+        View view = getLayoutInflater().inflate(R.layout.pop_rv, null);
         popupWindowMore.setContentView(view);
         popupWindowMore.setOutsideTouchable(true);
         final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.pop_lrv);
@@ -101,13 +116,14 @@ public class LibraryMoreActivity extends BaseActivity implements View.OnClickLis
             @Override
             public void successListener(PopBean response) {
                 popBean = response;
-                PopMoreAdapter moreAdapter = new PopMoreAdapter(LibraryMoreActivity.this);
+                final PopMoreAdapter moreAdapter = new PopMoreAdapter(LibraryMoreActivity.this);
                 moreAdapter.setData(popBean);
 //                lRecyclerViewAdapter = new LRecyclerViewAdapter(moreAdapter);
                 recyclerView.setAdapter(moreAdapter);
 
-                GridLayoutManager manager = new GridLayoutManager(LibraryMoreActivity.this,3);
+                GridLayoutManager manager = new GridLayoutManager(LibraryMoreActivity.this, 3);
                 recyclerView.setLayoutManager(manager);
+                moreAdapter.setPopClick(LibraryMoreActivity.this);
                 imgBtn.setOnClickListener(LibraryMoreActivity.this);
 
             }
@@ -117,17 +133,17 @@ public class LibraryMoreActivity extends BaseActivity implements View.OnClickLis
 
             }
         });
-
     }
 
     private void popWinData() {
         popupWindow = new PopupWindow(this);
         popupWindow.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
         popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-        View view = getLayoutInflater().inflate(R.layout.item_pop,null);
+        View view = getLayoutInflater().inflate(R.layout.item_pop, null);
         popupWindow.setContentView(view);
         // 点击外面让popup消失
         popupWindow.setOutsideTouchable(true);
+
         listView = (ListView) view.findViewById(R.id.lv_pop);
         dataPop = new ArrayList<>();
 
@@ -136,30 +152,40 @@ public class LibraryMoreActivity extends BaseActivity implements View.OnClickLis
             public void successListener(EncyclopediaBean response) {
                 bean = response;
                 PopAdapter popAdapter = new PopAdapter(LibraryMoreActivity.this);
-                int postion = intent.getIntExtra("p",0);
+                postion = intent.getIntExtra("p", 0);
                 String group = intent.getStringExtra("key");
-                int count = intent.getIntExtra("popCount",0);
+                count = intent.getIntExtra("popCount", 0);
                 Log.d("lol", postion + "," + group + "," + count);
-                if (group.equals("group")){
+                if (group.equals("group")) {
                     dataPop.add("全部");
+                    // 存name 到一个集合中
                     for (int i1 = 0; i1 < count; i1++) {
-                        Log.d("sb", bean.
-                                getGroup().
-                                get(0).
-                                getCategories().
-                                get(postion).
-                                getSub_categories().
-                                get(i1).
-                                getName());
+//                        Log.d("sb", bean.
+//                                getGroup().
+//                                get(0).
+//                                getCategories().
+//                                get(postion).
+//                                getSub_categories().
+//                                get(i1).
+//                                getName());
                         dataPop.add(bean.getGroup().get(0).getCategories().get(postion).getSub_categories().get(i1).getName());
                     }
-                }else if (group.equals("brand")){
+                    /************/
+                    countId = new ArrayList<>();
+                    // 把id 做循环 存到 一个集合中
+                    for (int i2 = 0; i2 < count; i2++) {
+                        countId.add(bean.getGroup().get(0).getCategories().get(postion).getSub_categories().get(i2).getId());
+                        Log.d("jj", "bean.getGroup().get(0).getCategories().get(postion).getSub_categories().get(i2).getId():" + bean.getGroup().get(0).getCategories().get(postion).getSub_categories().get(i2).getId());
+                    }
+                    /************/
+
+                } else if (group.equals("brand")) {
                     dataPop.add("无");
                     for (int i1 = 0; i1 < count; i1++) {
                         Log.d("lol", "我走到了这里");
                         dataPop.add(bean.getGroup().get(1).getCategories().get(postion).getSub_categories().get(i1).getName());
                     }
-                }else {
+                } else {
                     dataPop.add("无");
                     for (int i1 = 0; i1 < count; i1++) {
                         dataPop.add(bean.getGroup().get(2).getCategories().get(postion).getSub_categories().get(i1).getName());
@@ -168,6 +194,23 @@ public class LibraryMoreActivity extends BaseActivity implements View.OnClickLis
 
                 popAdapter.setData(dataPop);
                 listView.setAdapter(popAdapter);
+/*************/
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        if (position == 0){
+                            adapter.clean();
+                            StartUrl(UrlAll(1));
+                        }else {
+                            adapter.clean();
+                            StartUrl(UrlPop(countId.get(position - 1), i));
+                        }
+
+//                        recyclerView.setAdapter(lRecyclerViewAdapter);
+                        Toast.makeText(LibraryMoreActivity.this, "position:" + position, Toast.LENGTH_SHORT).show();
+                    }
+                });
+/*************/
 
                 btnPop = (Button) findViewById(R.id.library_more_all);
                 btnPop.setOnClickListener(LibraryMoreActivity.this);
@@ -192,10 +235,9 @@ public class LibraryMoreActivity extends BaseActivity implements View.OnClickLis
 
     private void getData() {
         StartUrl(UrlAll(1));
-        lRecyclerViewAdapter = new LRecyclerViewAdapter(adapter);
         recyclerView.setAdapter(lRecyclerViewAdapter);
 
-        LinearLayoutManager manager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        LinearLayoutManager manager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(manager);
         // 下拉刷新
         recyclerView.setOnRefreshListener(new OnRefreshListener() {
@@ -206,7 +248,7 @@ public class LibraryMoreActivity extends BaseActivity implements View.OnClickLis
                 StartUrl(UrlAll(i));
 //                recyclerView.setPullRefreshEnabled(true);
                 recyclerView.refreshComplete();
-                lRecyclerViewAdapter.notifyDataSetChanged();
+//                lRecyclerViewAdapter.notifyDataSetChanged();
             }
         });
         // 上拉加载
@@ -222,27 +264,40 @@ public class LibraryMoreActivity extends BaseActivity implements View.OnClickLis
 
     private void FirstData() {
         adapter = new LibraryMoreAdapter(this);
-        data = new ArrayList<>();
+        lRecyclerViewAdapter = new LRecyclerViewAdapter(adapter);
+//        data = new ArrayList<>();
         bean = new EncyclopediaBean();
         dataPop = new ArrayList<>();
     }
 
-    public String UrlAll(int i){
+    public String UrlAll(int i) {
         intent = getIntent();
-        String urlG = intent.getStringExtra("key");
-        String urlId = intent.getStringExtra("id");
+        urlG = intent.getStringExtra("key");
+        urlId = intent.getStringExtra("id");
         nameTv = intent.getStringExtra("name");
-        Log.d("aaa", urlId+"");
-        Log.d("think", UrlValue.FUCKONE + urlG + UrlValue.FUCKTWO + urlId + UrlValue.FUCKTHREE + i + UrlValue.FUCKFOUR);
+//        Log.d("aaa", urlId+"");
+//        Log.d("think", UrlValue.FUCKONE + urlG + UrlValue.FUCKTWO + urlId + UrlValue.FUCKTHREE + i + UrlValue.FUCKFOUR);
         return UrlValue.FUCKONE + urlG + UrlValue.FUCKTWO + urlId + UrlValue.FUCKTHREE + i + UrlValue.FUCKFOUR;
+    }
+
+    // J 为popMore 的 拼接
+    public String UrlMore(int i,String j){
+        Log.d("jj", UrlValue.POPONE + urlG + UrlValue.POPTWO + urlId + UrlValue.POPTHREE + j + UrlValue.POPFOUR + i + UrlValue.POPFIVE);
+        return UrlValue.POPONE + urlG + UrlValue.POPTWO + urlId + UrlValue.POPTHREE + j + UrlValue.POPFOUR + i + UrlValue.POPFIVE;
+    }
+
+    // ok 是传来的pop忧桑
+    public String UrlPop(int ok, int i) {
+        Log.d("jj", UrlValue.FUCKONE + urlG + UrlValue.FUCKTWO + urlId + "(&sub_value=" + ok + ")" + UrlValue.FUCKTHREE + i + UrlValue.FUCKFOUR);
+        return UrlValue.FUCKONE + urlG + UrlValue.FUCKTWO + urlId + "(&sub_value=" + ok + ")" + UrlValue.FUCKTHREE + i + UrlValue.FUCKFOUR;
     }
 
     private void StartUrl(String url) {
         NetHelper.MyRequest(url, LibraryMoreBean.class, new NetListener<LibraryMoreBean>() {
             @Override
             public void successListener(LibraryMoreBean response) {
-                data = response.getFoods();
-                adapter.setData(data);
+//                data = response.getFoods();
+                adapter.setData(response.getFoods());
             }
 
             @Override
@@ -254,7 +309,7 @@ public class LibraryMoreActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.library_more_all:
                 popupWindow.showAsDropDown(btnPop);
                 break;
@@ -263,5 +318,12 @@ public class LibraryMoreActivity extends BaseActivity implements View.OnClickLis
                 popupWindowMore.showAsDropDown(imgBtn);
                 break;
         }
+    }
+
+    // popMore的接口回调
+    @Override
+    public void PopListener(String pos) {
+        adapter.clean();
+        StartUrl(UrlMore(i,pos));
     }
 }

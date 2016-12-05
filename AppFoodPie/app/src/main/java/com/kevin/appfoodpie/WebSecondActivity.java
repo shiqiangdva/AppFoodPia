@@ -28,6 +28,8 @@ public class WebSecondActivity extends BaseActivity {
         Intent intent = getIntent();
         String url = intent.getStringExtra("url");
         webView.loadUrl(url);
+        webView.getSettings ().setJavaScriptEnabled (true);
+        webView.getSettings ().setBlockNetworkImage (false);
 
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override

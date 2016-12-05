@@ -114,6 +114,7 @@ public class FirstAdapter extends RecyclerView.Adapter{
             img_itemOne = (ImageView) itemView.findViewById(R.id.item_first_fragment_two_iv);
         }
     }
+
     class MyTwoViewHolder extends RecyclerView.ViewHolder{
         private ImageView img_big;
         private TextView tv_title;
@@ -131,4 +132,5 @@ public class FirstAdapter extends RecyclerView.Adapter{
             tv_num = (TextView) itemView.findViewById(R.id.item_first_fragment_tv_agree);
         }
     }
+
 }
