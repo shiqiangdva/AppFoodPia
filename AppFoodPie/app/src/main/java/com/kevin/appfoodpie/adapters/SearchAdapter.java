@@ -52,6 +52,19 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
         Picasso.with(context).load(data.get(position).getThumb_image_url()).into(holder.img);
         holder.name.setText(data.get(position).getName());
         holder.num.setText(data.get(position).getCalory());
+        int num = data.get(position).getHealth_light();
+        switch (num){
+            case 1:
+                holder.imgC.setImageResource(R.mipmap.ic_food_light_green);
+                break;
+            case 2:
+                holder.imgC.setImageResource(R.mipmap.ic_food_light_yellow);
+                break;
+            case 3:
+                holder.imgC.setImageResource(R.mipmap.ic_food_light_red);
+                break;
+
+        }
     }
 
     @Override
@@ -60,13 +73,14 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
     }
 
     class SearchViewHolder extends RecyclerView.ViewHolder{
-        private ImageView img;
+        private ImageView img,imgC;
         private TextView name,num;
         public SearchViewHolder(View itemView) {
             super(itemView);
             img = (ImageView) itemView.findViewById(R.id.details_img);
             name = (TextView) itemView.findViewById(R.id.details_name);
             num = (TextView) itemView.findViewById(R.id.details_kc);
+            imgC = (ImageView) itemView.findViewById(R.id.img_color_more);
         }
     }
 }

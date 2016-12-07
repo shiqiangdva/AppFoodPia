@@ -54,6 +54,19 @@ public class LibraryMoreAdapter extends RecyclerView.Adapter<LibraryMoreAdapter.
         Picasso.with(context).load(data.get(position).getThumb_image_url()).into(holder.img);
         holder.tvName.setText(data.get(position).getName());
         holder.tvCalory.setText(data.get(position).getCalory());
+        int num = data.get(position).getHealth_light();
+        switch (num){
+            case 1:
+                holder.imgC.setImageResource(R.mipmap.ic_food_light_green);
+                break;
+            case 2:
+                holder.imgC.setImageResource(R.mipmap.ic_food_light_yellow);
+                break;
+            case 3:
+                holder.imgC.setImageResource(R.mipmap.ic_food_light_red);
+                break;
+
+        }
     }
 
     @Override
@@ -62,7 +75,7 @@ public class LibraryMoreAdapter extends RecyclerView.Adapter<LibraryMoreAdapter.
     }
 
     class LibraryViewHolder extends RecyclerView.ViewHolder {
-        private ImageView img;
+        private ImageView img,imgC;
         private TextView tvName,tvCalory;
 
         public LibraryViewHolder(View itemView) {
@@ -70,6 +83,7 @@ public class LibraryMoreAdapter extends RecyclerView.Adapter<LibraryMoreAdapter.
             img = (CircleImageView) itemView.findViewById(R.id.item_lib_more_img);
             tvName = (TextView) itemView.findViewById(R.id.item_lib_more_tv_name);
             tvCalory = (TextView) itemView.findViewById(R.id.item_lib_more_tv_calory);
+            imgC = (ImageView) itemView.findViewById(R.id.img_color);
         }
     }
 }

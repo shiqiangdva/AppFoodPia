@@ -109,6 +109,7 @@ public class LibraryMoreActivity extends BaseActivity implements View.OnClickLis
         View view = getLayoutInflater().inflate(R.layout.pop_rv, null);
         popupWindowMore.setContentView(view);
         popupWindowMore.setOutsideTouchable(true);
+        popupWindow.setFocusable(true);
         final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.pop_lrv);
 
         popBean = new PopBean();
@@ -143,6 +144,7 @@ public class LibraryMoreActivity extends BaseActivity implements View.OnClickLis
         popupWindow.setContentView(view);
         // 点击外面让popup消失
         popupWindow.setOutsideTouchable(true);
+        popupWindow.setFocusable(true);
 
         listView = (ListView) view.findViewById(R.id.lv_pop);
         dataPop = new ArrayList<>();

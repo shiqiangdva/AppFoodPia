@@ -75,6 +75,7 @@ public class SearchDetailsActivity extends BaseActivity implements View.OnClickL
         popupWindow.setContentView(view);
         // 点击外面让popup消失
         popupWindow.setOutsideTouchable(true);
+        popupWindow.setFocusable(true);
         rv = (RecyclerView) view.findViewById(R.id.pop_other);
         NetHelper.MyRequest(UrlValue.POP, PopBean.class, new NetListener<PopBean>() {
             @Override
@@ -100,6 +101,9 @@ public class SearchDetailsActivity extends BaseActivity implements View.OnClickL
         btnDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent("com.kevin.appfoodpie.MY_BR");
+                intent.putExtra("My_BR","刷新数据");
+                sendBroadcast(intent);
                 finish();
             }
         });
@@ -108,6 +112,7 @@ public class SearchDetailsActivity extends BaseActivity implements View.OnClickL
             public void onClick(View v) {
                 Intent intent = new Intent(SearchDetailsActivity.this,MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

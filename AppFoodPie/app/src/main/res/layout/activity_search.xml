@@ -9,10 +9,11 @@
 
 
     <LinearLayout
+        android:id="@+id/fuck"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:orientation="horizontal"
-        android:background="#fff">
+        android:background="#fff"
+        android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/search_ret"
@@ -55,13 +56,12 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="@color/colorDividedLine"/>
+        android:background="@color/colorDividedLine" />
 
-    <!--最近搜过 和 大家都在搜放在 ScrollView 中-->
     <ScrollView
-        android:scrollbars="none"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -69,38 +69,34 @@
             android:orientation="vertical">
 
             <!--<LinearLayout-->
-                <!--android:id="@+id/library_search_history_ll"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:orientation="vertical">-->
+            <!--android:id="@+id/library_search_history_ll"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical">-->
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/colorDividedLine"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/colorDividedLine" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:gravity="center_vertical"
-                    android:text="最近搜过"
-                    android:textSize="10sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:text="最近搜过"
+                android:textSize="10sp" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/colorDividedLine"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/colorDividedLine" />
 
-                <!--<TextView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="用ListView来实现"-->
-                    <!--/>-->
-                <ListView
-                    android:id="@+id/search_history_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+
+            <com.kevin.appfoodpie.values.NoScrollListView
+                android:id="@+id/search_history_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
             <!--</LinearLayout>-->
 
@@ -108,7 +104,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@color/colorDividedLine"/>
+                android:background="@color/colorDividedLine" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -121,7 +117,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@color/colorDividedLine"/>
+                android:background="@color/colorDividedLine" />
 
 
             <!--用于显示大家都在搜的内容-->
@@ -129,7 +125,7 @@
                 android:id="@+id/ten_rvw"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
         </LinearLayout>
 
