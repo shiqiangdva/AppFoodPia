@@ -4,14 +4,18 @@ import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.PopupWindow;
+import android.widget.Toast;
 
 import com.android.volley.VolleyError;
+import com.github.jdsjlzx.interfaces.OnItemClickListener;
 import com.github.jdsjlzx.interfaces.OnLoadMoreListener;
+import com.github.jdsjlzx.interfaces.OnRefreshListener;
 import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
 import com.kevin.appfoodpie.adapters.PopMoreAdapter;
@@ -123,6 +127,26 @@ public class SearchDetailsActivity extends BaseActivity implements View.OnClickL
         LinearLayoutManager manager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(manager);
 
+        lRecyclerViewAdapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int i) {
+                Intent intent = new Intent(SearchDetailsActivity.this,ThreeActivity.class);
+                intent.putExtra("code6",data.get(i).getCode());
+                intent.putExtra("type6",data.get(i).getType());
+                intent.putExtra("name6",data.get(i).getName());
+                intent.putExtra("if","1");
+                Log.d("nono", data.get(i).getCode() + " " + data.get(i).getType() + " " + data.get(i).getName());
+                startActivity(intent);
+            }
+        });
+
+        recyclerView.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                recyclerView.refreshComplete();
+            }
+        });
+
         recyclerView.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore() {
@@ -150,6 +174,7 @@ public class SearchDetailsActivity extends BaseActivity implements View.OnClickL
     public String UrlAll(int i){
         intent = getIntent();
         etSearch.setText(intent.getStringExtra("food"));
+        Log.d("olo", UrlValue.SEARCHONE + i + UrlValue.SEARCHTWO + intent.getStringExtra("food"));
         return UrlValue.SEARCHONE + i + UrlValue.SEARCHTWO + intent.getStringExtra("food");
     }
 

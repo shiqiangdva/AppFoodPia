@@ -115,6 +115,7 @@
                 android:src="@mipmap/ic_my_collect" />
 
             <TextView
+                android:id="@+id/myCollection_tv"
                 android:layout_width="@dimen/two_eight_zen_dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"

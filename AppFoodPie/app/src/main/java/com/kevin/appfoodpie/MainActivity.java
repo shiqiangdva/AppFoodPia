@@ -11,6 +11,8 @@ import com.kevin.appfoodpie.fragments.EatFragment;
 import com.kevin.appfoodpie.fragments.EncyclopediaFragment;
 import com.kevin.appfoodpie.fragments.MyFragment;
 
+import cn.sharesdk.framework.ShareSDK;
+
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private Button btn_encyclopedia,btn_eat,btn_my;
@@ -26,6 +28,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         btn_encyclopedia = (Button) findViewById(R.id.rbt_encyclopedia);
         btn_eat = (Button) findViewById(R.id.rbt_eat);
         btn_my = (Button) findViewById(R.id.rbt_my);
+        ShareSDK.initSDK(this);
     }
 
     @Override

@@ -19,6 +19,7 @@ import com.android.volley.VolleyError;
 import com.kevin.appfoodpie.adapters.HistoryListAdapter;
 import com.kevin.appfoodpie.adapters.TenAdapter;
 import com.kevin.appfoodpie.beans.TenBean;
+import com.kevin.appfoodpie.values.DBTool;
 import com.kevin.appfoodpie.values.DaoMaster;
 import com.kevin.appfoodpie.values.DaoSession;
 import com.kevin.appfoodpie.values.DividerItemDecoration;
@@ -66,10 +67,10 @@ public class SearchActivity extends BaseActivity implements TenClick {
         lv = (NoScrollListView) findViewById(R.id.search_history_list);
         hisAdapter = new HistoryListAdapter(this);
         // 大保健数据库的各种初始化
-        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "FoodFile.db", null);
-        DaoMaster master = new DaoMaster(helper.getWritableDb());
-        DaoSession session = master.newSession();
-        foodDao = session.getFoodDao();
+//        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "FoodFile.db", null);
+//        DaoMaster master = new DaoMaster(helper.getWritableDb());
+//        DaoSession session = master.newSession();
+//        foodDao = session.getFoodDao();
 
         br = new MyBR();
     }
@@ -86,7 +87,9 @@ public class SearchActivity extends BaseActivity implements TenClick {
         BtnBackFinish();
 
         //数据路list///
-        final List<Food> list = foodDao.loadAll();
+//        final List<Food> list = foodDao.loadAll();
+        final List<Food> list = DBTool.getInstance().queryAll();
+
         // 取反 让新的数据放在上面
         listName = new ArrayList<>();
 //        hisAdapter.setData(list);
@@ -140,16 +143,22 @@ public class SearchActivity extends BaseActivity implements TenClick {
 
     public void newUi(){
         //数据路list///
-        final List<Food> list = foodDao.loadAll();
+//        final List<Food> list = foodDao.loadAll();
+        final List<Food> list = DBTool.getInstance().queryAll();
         // 取反 让新的数据放在上面
         listName = new ArrayList<>();
 //        hisAdapter.setData(list);
         for (int i = list.size(); i > 0; i--) {
             listName.add(list.get(i-1).getName());
         }
+
+        hisAdapter.Clean();
+//        listName.clear();
         hisAdapter.setData(listName);
+//        hisAdapter.Clean();
         lv.setAdapter(hisAdapter);
     }
+
     class MyBR extends BroadcastReceiver{
 
         @Override
@@ -163,9 +172,9 @@ public class SearchActivity extends BaseActivity implements TenClick {
 
     public void FoodDelAll(){
 //        Food foodDel = foodDao.queryBuilder().where(FoodDao.Properties.Name.eq(name)).build().unique();
-        foodDao.deleteAll();
+//        foodDao.deleteAll();
+        DBTool.getInstance().deleteAll();
     }
-
 
 
     private void BtnBackFinish() {
@@ -203,15 +212,23 @@ public class SearchActivity extends BaseActivity implements TenClick {
             @Override
             public void onClick(View v) {
                 etData = etSearch.getText().toString();
-                // 数据库查重并添加
-                Food food = foodDao.queryBuilder().where(FoodDao.Properties.Name.eq(etData)).build().unique();
-                if (food == null){
+//                // 数据库查重并添加
+//                Food food = foodDao.queryBuilder().where(FoodDao.Properties.Name.eq(etData)).build().unique();
+//                if (food == null){
+//                    Food newData = new Food(null,etData);
+//                    foodDao.insert(newData);
+//                }else {
+//                    Food newData = new Food(null,etData);
+//                    foodDao.deleteByKey(food.getId());
+//                    foodDao.insert(newData);
+//                }
+                if (!DBTool.getInstance().isSave(etData)){
                     Food newData = new Food(null,etData);
-                    foodDao.insert(newData);
+                    DBTool.getInstance().insertPerson(newData);
                 }else {
                     Food newData = new Food(null,etData);
-                    foodDao.deleteByKey(food.getId());
-                    foodDao.insert(newData);
+                    DBTool.getInstance().deleteByName(etData);
+                    DBTool.getInstance().insertPerson(newData);
                 }
 
                 Intent intent = new Intent(SearchActivity.this, SearchDetailsActivity.class);
@@ -223,15 +240,23 @@ public class SearchActivity extends BaseActivity implements TenClick {
 
     @Override
     public void TenListener(String data) {
-        // 查重并添加数据
-        food = foodDao.queryBuilder().where(FoodDao.Properties.Name.eq(data)).build().unique();
-        if (food == null){
+//        // 查重并添加数据
+//        food = foodDao.queryBuilder().where(FoodDao.Properties.Name.eq(data)).build().unique();
+//        if (food == null){
+//            Food newData = new Food(null,data);
+//            foodDao.insert(newData);
+//        }else {
+//            Food newData = new Food(null,data);
+//            foodDao.deleteByKey(food.getId());
+//            foodDao.insert(newData);
+//        }
+        if (!DBTool.getInstance().isSave(data)){
             Food newData = new Food(null,data);
-            foodDao.insert(newData);
+            DBTool.getInstance().insertPerson(newData);
         }else {
             Food newData = new Food(null,data);
-            foodDao.deleteByKey(food.getId());
-            foodDao.insert(newData);
+            DBTool.getInstance().deleteByName(data);
+            DBTool.getInstance().insertPerson(newData);
         }
 
 

@@ -79,11 +79,14 @@
             android:gravity="center">
 
             <ImageView
+                android:id="@+id/img_love"
                 android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_news_keep_default"
+                android:background="@drawable/love_bg"
                 android:layout_gravity="center_vertical"/>
+
+            <!--android:src="@mipmap/ic_news_keep_default"-->
             <TextView
                 android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
@@ -92,8 +95,6 @@
                 android:layout_gravity="center_vertical"/>
 
         </LinearLayout>
-
-
 
     </LinearLayout>
 

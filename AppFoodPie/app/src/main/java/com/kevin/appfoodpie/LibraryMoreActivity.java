@@ -22,6 +22,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.github.jdsjlzx.interfaces.OnItemClickListener;
 import com.github.jdsjlzx.interfaces.OnLoadMoreListener;
 import com.github.jdsjlzx.interfaces.OnRefreshListener;
 import com.github.jdsjlzx.recyclerview.LRecyclerView;
@@ -47,7 +48,7 @@ import java.util.List;
 public class LibraryMoreActivity extends BaseActivity implements View.OnClickListener, PopClick {
     private LRecyclerView recyclerView;
     private LRecyclerViewAdapter lRecyclerViewAdapter;
-//    private List<LibraryMoreBean.FoodsBean> data;
+    private List<LibraryMoreBean.FoodsBean> data;
     private LibraryMoreAdapter adapter;
     private int i = 1;
     private ImageButton imgBack;
@@ -241,6 +242,35 @@ public class LibraryMoreActivity extends BaseActivity implements View.OnClickLis
 
         LinearLayoutManager manager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(manager);
+
+        lRecyclerViewAdapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int i) {
+                String caloryQk = data.get(i).getCalory();
+                String proteinDbz = data.get(i).getProtein();
+                String fatZf = data.get(i).getFat();
+                String carbohydrateTs = data.get(i).getCarbohydrate();
+                String fiber_dietarySsxw = data.get(i).getFiber_dietary();
+
+                String imgT = data.get(i).getThumb_image_url();
+                String nameT = data.get(i).getName();
+
+                Intent intent = new Intent(LibraryMoreActivity.this,ThreeActivity.class);
+                intent.putExtra("caloryQk",caloryQk);
+                intent.putExtra("proteinDbz",proteinDbz);
+                intent.putExtra("fatZf",fatZf);
+                intent.putExtra("carbohydrateTs",carbohydrateTs);
+                intent.putExtra("fiber_dietarySsxw",fiber_dietarySsxw);
+
+                intent.putExtra("imgT",imgT);
+                intent.putExtra("nameT",nameT);
+
+                intent.putExtra("if","2");
+                startActivity(intent);
+
+            }
+        });
+
         // 下拉刷新
         recyclerView.setOnRefreshListener(new OnRefreshListener() {
             @Override
@@ -267,7 +297,7 @@ public class LibraryMoreActivity extends BaseActivity implements View.OnClickLis
     private void FirstData() {
         adapter = new LibraryMoreAdapter(this);
         lRecyclerViewAdapter = new LRecyclerViewAdapter(adapter);
-//        data = new ArrayList<>();
+        data = new ArrayList<>();
         bean = new EncyclopediaBean();
         dataPop = new ArrayList<>();
     }
@@ -279,6 +309,7 @@ public class LibraryMoreActivity extends BaseActivity implements View.OnClickLis
         nameTv = intent.getStringExtra("name");
 //        Log.d("aaa", urlId+"");
 //        Log.d("think", UrlValue.FUCKONE + urlG + UrlValue.FUCKTWO + urlId + UrlValue.FUCKTHREE + i + UrlValue.FUCKFOUR);
+        Log.d("cctv", UrlValue.FUCKONE + urlG + UrlValue.FUCKTWO + urlId + UrlValue.FUCKTHREE + i + UrlValue.FUCKFOUR);
         return UrlValue.FUCKONE + urlG + UrlValue.FUCKTWO + urlId + UrlValue.FUCKTHREE + i + UrlValue.FUCKFOUR;
     }
 
@@ -298,8 +329,8 @@ public class LibraryMoreActivity extends BaseActivity implements View.OnClickLis
         NetHelper.MyRequest(url, LibraryMoreBean.class, new NetListener<LibraryMoreBean>() {
             @Override
             public void successListener(LibraryMoreBean response) {
-//                data = response.getFoods();
-                adapter.setData(response.getFoods());
+                data = response.getFoods();
+                adapter.setData(data);
             }
 
             @Override

@@ -10,6 +10,9 @@ import android.content.Context;
     //清单文件中加入自己的App
 public class MyApp extends Application {
     private static Context mContext;
+    private static DaoMaster daoMaster;
+    private static DaoSession daoSession;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -20,4 +23,21 @@ public class MyApp extends Application {
     public static Context getmContext() {
         return mContext;
     }
+
+    public static DaoMaster getDaoMaster(){
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(getmContext(),"Food.db",null);
+        daoMaster = new DaoMaster(helper.getWritableDb());
+        return daoMaster;
+    }
+
+    public static DaoSession getDaoSession(){
+        if (daoSession == null){
+            if (daoMaster == null){
+                daoMaster = getDaoMaster();
+            }
+            daoSession = daoMaster.newSession();
+        }
+        return daoSession;
+    }
+
 }
