@@ -1,25 +1,17 @@
 package com.kevin.appfoodpie;
 
 import android.app.NotificationManager;
-import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.kevin.appfoodpie.beans.EventBusBean;
 import com.mob.tools.utils.UIHandler;
-import com.squareup.picasso.Picasso;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.util.HashMap;
 
@@ -28,77 +20,68 @@ import cn.sharesdk.framework.PlatformActionListener;
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.sina.weibo.SinaWeibo;
 
-public class LoginActivity extends BaseActivity implements PlatformActionListener, Handler.Callback {
+public class TestActivity extends AppCompatActivity implements PlatformActionListener,Handler.Callback {
 
-    private ImageButton btnBack;
-    private Button my_login_weibo;
+    private Button btn;
+    private Button btn2;
+    private TextView mThirdLoginResult;
 
     private static final int MSG_TOAST = 1;
     private static final int MSG_ACTION_CCALLBACK = 2;
     private static final int MSG_CANCEL_NOTIFY = 3;
 
-    private EventBus eventBus;
 
     @Override
-    int setLayout() {
-        return R.layout.activity_login;
-    }
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_test);
 
-    @Override
-    void initView() {
-        btnBack = (ImageButton) findViewById(R.id.my_login_return);
-        my_login_weibo = (Button) findViewById(R.id.my_login_weibo);
-        eventBus = EventBus.getDefault();
-    }
 
-    @Override
-    void initData() {
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        btn = (Button) findViewById(R.id.btn_login);
+        btn2 = (Button) findViewById(R.id.btn_back);
+        mThirdLoginResult = (TextView) findViewById(R.id.tv);
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
-        my_login_weibo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                startActivity(new Intent(LoginActivity.this,TestActivity.class));
-
+            public void onClick(View view) {
                 thirdSinaLogin();
-
-
+            }
+        });
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                back();
             }
         });
 
 
+
+
     }
 
-    public void back() {
-        Platform mPf = ShareSDK.getPlatform(LoginActivity.this, SinaWeibo.NAME);
+
+    public void back(){
+
+        Platform mPf = ShareSDK.getPlatform(TestActivity.this, SinaWeibo.NAME);
         //如果要删除授权信息，重新授权
         ShareSDK.removeCookieOnAuthorize(true);
         mPf.removeAccount();
 
+
     }
 
 
-    /**
-     * 新浪微博授权、获取用户信息页面
-     */
+
+    /** 新浪微博授权、获取用户信息页面 */
     private void thirdSinaLogin() {
         //初始化新浪平台
-        Platform pf = ShareSDK.getPlatform(LoginActivity.this, SinaWeibo.NAME);
+        Platform pf = ShareSDK.getPlatform(TestActivity.this, SinaWeibo.NAME);
         pf.SSOSetting(true);
         //设置监听
-        pf.setPlatformActionListener(LoginActivity.this);
+        pf.setPlatformActionListener(TestActivity.this);
         //获取登陆用户的信息，如果没有授权，会先授权，然后获取用户信息
         pf.authorize();
     }
-
-    /**
-     * 新浪微博授权成功回调页面
-     */
+    /** 新浪微博授权成功回调页面 */
     @Override
     public void onComplete(Platform platform, int action, HashMap<String, Object> hashMap) {
         /** res是返回的数据，例如showUser(null),返回用户信息，对其解析就行
@@ -117,10 +100,7 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
         msg.obj = platform;
         UIHandler.sendMessage(msg, this);
     }
-
-    /**
-     * 取消授权
-     */
+    /** 取消授权 */
     @Override
     public void onCancel(Platform platform, int action) {
         Message msg = new Message();
@@ -130,10 +110,7 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
         msg.obj = platform;
         UIHandler.sendMessage(msg, this);
     }
-
-    /**
-     * 授权失败
-     */
+    /** 授权失败 */
     @Override
     public void onError(Platform platform, int action, Throwable t) {
         t.printStackTrace();
@@ -148,10 +125,10 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
 
     @Override
     public boolean handleMessage(Message msg) {
-        switch (msg.what) {
+        switch(msg.what) {
             case MSG_TOAST: {
                 String text = String.valueOf(msg.obj);
-                Toast.makeText(LoginActivity.this, text, Toast.LENGTH_SHORT).show();
+                Toast.makeText(TestActivity.this, text, Toast.LENGTH_SHORT).show();
             }
             break;
             case MSG_ACTION_CCALLBACK: {
@@ -160,26 +137,11 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
                         // 成功, successful notification
                         //授权成功后,获取用户信息，要自己解析，看看oncomplete里面的注释
                         //ShareSDK只保存以下这几个通用值
-                        Platform pf = ShareSDK.getPlatform(LoginActivity.this, SinaWeibo.NAME);
+                        Platform pf = ShareSDK.getPlatform(TestActivity.this, SinaWeibo.NAME);
                         Log.e("sharesdk use_id", pf.getDb().getUserId()); //获取用户id
                         Log.e("sharesdk use_name", pf.getDb().getUserName());//获取用户名称
                         Log.e("sharesdk use_icon", pf.getDb().getUserIcon());//获取用户头像
-//                        mThirdLoginResult.setText("授权成功"+"\n"+"用户id:" + pf.getDb().getUserId() + "\n" + "获取用户名称" + pf.getDb().getUserName() + "\n" + "获取用户头像" + pf.getDb().getUserIcon());
-//                        View view = LayoutInflater.from(this).inflate(R.layout.fragment_my,null);
-//                        TextView tv_my = (TextView) view.findViewById(R.id.tv_my);
-//                        ImageView img_my = (ImageView) view.findViewById(R.id.iv_my);
-//                        Button fragment_my_btn = (Button) view.findViewById(R.id.fragment_my_btn);
-//
-//                        tv_my.setText(pf.getDb().getUserName());
-//                        Picasso.with(this).load(pf.getDb().getUserIcon()).into(img_my);
-//                        fragment_my_btn.setText("退出");
-
-                        EventBusBean busBean = new EventBusBean();
-                        busBean.setImg(pf.getDb().getUserIcon());
-                        busBean.setName(pf.getDb().getUserName());
-                        busBean.setBtn("退出");
-                        eventBus.post(busBean);
-
+                        mThirdLoginResult.setText("授权成功"+"\n"+"用户id:" + pf.getDb().getUserId() + "\n" + "获取用户名称" + pf.getDb().getUserName() + "\n" + "获取用户头像" + pf.getDb().getUserIcon());
                         //mPf.author()这个方法每一次都会调用授权，出现授权界面
                         //如果要删除授权信息，重新授权
                         //mPf.getDb().removeAccount();
@@ -187,12 +149,12 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
                     }
                     break;
                     case 2: {
-//                        mThirdLoginResult.setText("登录失败");
+                        mThirdLoginResult.setText("登录失败");
                     }
                     break;
                     case 3: {
                         // 取消, cancel notification
-//                        mThirdLoginResult.setText("取消授权");
+                        mThirdLoginResult.setText("取消授权");
                     }
                     break;
                 }
@@ -208,6 +170,5 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
         }
         return false;
     }
-
 
 }

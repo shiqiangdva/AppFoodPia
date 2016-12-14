@@ -14,18 +14,22 @@ import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.github.jdsjlzx.interfaces.OnItemClickListener;
+import com.github.jdsjlzx.interfaces.OnItemLongClickListener;
 import com.github.jdsjlzx.interfaces.OnLoadMoreListener;
 import com.github.jdsjlzx.interfaces.OnRefreshListener;
 import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
 import com.kevin.appfoodpie.adapters.PopMoreAdapter;
 import com.kevin.appfoodpie.adapters.SearchAdapter;
+import com.kevin.appfoodpie.beans.EBean;
 import com.kevin.appfoodpie.beans.PopBean;
 import com.kevin.appfoodpie.beans.SearchBean;
 import com.kevin.appfoodpie.values.NetHelper;
 import com.kevin.appfoodpie.values.NetListener;
 import com.kevin.appfoodpie.values.PopClick;
 import com.kevin.appfoodpie.values.UrlValue;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
@@ -45,6 +49,8 @@ public class SearchDetailsActivity extends BaseActivity implements View.OnClickL
     private RecyclerView rv;
     private Intent intent;
 
+    private EventBus eventBus;
+
     @Override
     int setLayout() {
         return R.layout.activity_search_details;
@@ -61,6 +67,8 @@ public class SearchDetailsActivity extends BaseActivity implements View.OnClickL
         btnPop = (ImageButton) findViewById(R.id.nutritional_more);
         popBean = new PopBean();
         popMoreAdapter = new PopMoreAdapter(this);
+
+        eventBus = EventBus.getDefault();
     }
 
     @Override
@@ -137,6 +145,26 @@ public class SearchDetailsActivity extends BaseActivity implements View.OnClickL
                 intent.putExtra("if","1");
                 Log.d("nono", data.get(i).getCode() + " " + data.get(i).getType() + " " + data.get(i).getName());
                 startActivity(intent);
+            }
+        });
+
+        lRecyclerViewAdapter.setOnItemLongClickListener(new OnItemLongClickListener() {
+            @Override
+            public void onItemLongClick(View view, int i) {
+                EBean bean = new EBean();
+                bean.setCode6(data.get(i).getCode());
+                bean.setType6(data.get(i).getType());
+                bean.setName6(data.get(i).getName());
+                EventBus.getDefault().post(bean);
+//                Log.d("jjjj", bean.getName6() + " " + bean.getCode6() + " " + bean.getType6());
+
+                Intent intent = new Intent(SearchDetailsActivity.this,CompareActivity.class);
+//                intent.putExtra("11",data.get(i).getCode());
+//                intent.putExtra("22",data.get(i).getType());
+//                intent.putExtra("33",data.get(i).getName());
+                intent.putExtra("44",data.get(i).getThumb_image_url());
+                startActivity(intent);
+                finish();
             }
         });
 

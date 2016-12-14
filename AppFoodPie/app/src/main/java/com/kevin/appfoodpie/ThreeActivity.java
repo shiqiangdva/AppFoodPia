@@ -68,8 +68,9 @@ public class ThreeActivity extends BaseActivity{
         // 返回按钮
         backBtn();
 
-        if (!DBTool.getInstance().isDataSave(tvName.toString())) {
+        if (!DBTool.getInstance().isDataSave(et.getText().toString())) {
             i = 1;
+            Log.d("hh", "我走了这一步");
             love.setSelected(false);
         } else {
             i = 2;
@@ -106,7 +107,6 @@ public class ThreeActivity extends BaseActivity{
             }
         });
 
-
     }
 
     private void ifGoWhere() {
@@ -116,6 +116,7 @@ public class ThreeActivity extends BaseActivity{
             showData();
 
         }else {
+            et.setText(intent.getStringExtra("name6"));
             // 解析数据
             StartUrl(UrlAll());
         }
@@ -126,7 +127,7 @@ public class ThreeActivity extends BaseActivity{
         String code = intent.getStringExtra("code6");
         String type = intent.getStringExtra("type6");
         String name = intent.getStringExtra("name6");
-        Log.d("jjj", "http://food.boohee.com/fb/v1/" + type + "/" + code + "/mode_show?token=" + name);
+        Log.d("ThreeActivity", "http://food.boohee.com/fb/v1/" + type + "s/" + code + "/mode_show?token=" + name);
         return "http://food.boohee.com/fb/v1/" + type + "s/" + code + "/mode_show?token=" + name;
     }
 
@@ -137,7 +138,7 @@ public class ThreeActivity extends BaseActivity{
                 fuck = response.getThumb_image_url();
                 Picasso.with(ThreeActivity.this).load(response.getThumb_image_url()).into(img);
                 tvName.setText(response.getName());
-                et.setText(response.getName());
+//                et.setText(response.getName());
                 tvB.setText(response.getCalory());
 
                 tvQk.setText(response.getCalory());
