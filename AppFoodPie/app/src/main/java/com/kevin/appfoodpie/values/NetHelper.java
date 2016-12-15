@@ -10,7 +10,7 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 
 /**
- * Created by leisure on 2016/11/28.
+ * Created by kevin on 2016/11/28.
  */
 public class NetHelper {
     private RequestQueue mRequestQueue;

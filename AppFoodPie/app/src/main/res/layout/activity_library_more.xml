@@ -23,15 +23,14 @@
                 android:src="@mipmap/ic_back_dark_center"
                 android:background="@null"
                 android:layout_gravity="center"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="@dimen/five_dp"
                 />
             <TextView
                 android:id="@+id/library_more_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="XXX类"
                 android:layout_gravity="center"
-                android:textSize="20sp"
+                android:textSize="@dimen/tv_tvsize"
                 android:textColor="@color/colorDick"
                 />
         </LinearLayout>
@@ -45,11 +44,11 @@
             android:id="@+id/library_more_all"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="全部"
+            android:text="@string/all"
             android:drawableRight="@mipmap/ic_food_arrow_ordering"
             android:background="@null"
             android:layout_gravity="center"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="@dimen/ten"
             />
 
     </LinearLayout>
@@ -63,22 +62,22 @@
     <LinearLayout
         android:id="@+id/library_more_nutritional_element_ll"
         android:layout_width="wrap_content"
-        android:layout_height="45dp"
+        android:layout_height="@dimen/four_five_dp"
         android:orientation="horizontal"
         >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="营养素排行"
+            android:text="@string/ying_yang"
             android:textColor="@color/colorDick"
             android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginLeft="@dimen/five_dp"
+            android:layout_marginRight="@dimen/five_dp"
             />
         <ImageButton
             android:id="@+id/library_more_nutritional_element_ib"
             android:layout_width="wrap_content"
-            android:layout_height="45dp"
+            android:layout_height="@dimen/four_five_dp"
             android:src="@mipmap/ic_food_arrow_ordering"
             android:background="@null"
             />

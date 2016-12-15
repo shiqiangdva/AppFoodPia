@@ -6,35 +6,32 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/food_img"
-        android:layout_margin="10dp"
-        android:src="@mipmap/ic_launcher"
+        android:layout_margin="@dimen/ten"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <RelativeLayout
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/ten"
         android:layout_gravity="center_vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/food_tv_name"
-            android:text="测试数据"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/food_tv_num"
             android:layout_below="@+id/food_tv_name"
-            android:text="测试数据"
-            android:textColor="#f00"
+            android:textColor="@color/colorRenTwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <TextView
             android:layout_below="@+id/food_tv_name"
             android:layout_toRightOf="@+id/food_tv_num"
-            android:text="千卡/100.0克"
+            android:text="@string/q_k_100"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

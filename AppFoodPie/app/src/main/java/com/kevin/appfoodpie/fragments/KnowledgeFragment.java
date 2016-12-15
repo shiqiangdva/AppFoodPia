@@ -37,15 +37,16 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class KnowledgeFragment extends BaseFragment{
+public class KnowledgeFragment extends BaseFragment {
 
-//    private KnowledgeBean bean;
+    //    private KnowledgeBean bean;
 //    private ListView listView;
     private KnowledgeAdapter adapter;
 
 
     /**
      * 上拉刷新的控件
+     *
      * @return
      */
     private PullToRefreshListView mPullToRefreshListView;
@@ -83,8 +84,8 @@ public class KnowledgeFragment extends BaseFragment{
         mPullToRefreshListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getActivity(),WebSecondActivity.class);
-                intent.putExtra("url",lol.get(position-1).getLink());
+                Intent intent = new Intent(getActivity(), WebSecondActivity.class);
+                intent.putExtra("url", lol.get(position - 1).getLink());
                 startActivity(intent);
             }
         });
@@ -105,7 +106,7 @@ public class KnowledgeFragment extends BaseFragment{
 
     }
 
-    public String urlAll(int i){
+    public String urlAll(int i) {
         String url1 = getArguments().getString("url1").toString();
         String url2 = getArguments().getString("url2").toString();
 
@@ -163,11 +164,11 @@ public class KnowledgeFragment extends BaseFragment{
         adapter = new KnowledgeAdapter(getContext());
     }
 
-    public static KnowledgeFragment newInstance(String url1,String url2) {
-        
+    public static KnowledgeFragment newInstance(String url1, String url2) {
+
         Bundle args = new Bundle();
-        args.putString("url1",url1);
-        args.putString("url2",url2);
+        args.putString("url1", url1);
+        args.putString("url2", url2);
         KnowledgeFragment fragment = new KnowledgeFragment();
         fragment.setArguments(args);
         return fragment;
@@ -180,7 +181,7 @@ public class KnowledgeFragment extends BaseFragment{
         protected Integer doInBackground(Integer... params) {
             try {
                 Thread.sleep(2000);
-                i =i+1;
+                i = i + 1;
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -206,9 +207,7 @@ public class KnowledgeFragment extends BaseFragment{
         protected Integer doInBackground(Integer... params) {
             try {
                 Thread.sleep(2000);
-//                if (i != 1){
-//                    i = i - 1;
-//                }
+//
                 i = 1;
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -230,5 +229,5 @@ public class KnowledgeFragment extends BaseFragment{
 
     }
 
-    
+
 }

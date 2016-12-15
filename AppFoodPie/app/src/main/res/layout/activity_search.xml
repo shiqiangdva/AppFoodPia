@@ -11,8 +11,8 @@
     <LinearLayout
         android:id="@+id/fuck"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#fff"
+        android:layout_height="@dimen/five_zen"
+        android:background="@color/colorWhiteThree"
         android:orientation="horizontal">
 
         <ImageButton
@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="5dp"
+            android:layout_margin="@dimen/five_dp"
             android:background="@null"
             android:src="@mipmap/ic_back_dark_center" />
 
@@ -31,8 +31,8 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@null"
-            android:hint="请输入食物名称"
-            android:textSize="20sp" />
+            android:hint="@string/place_shu_ru"
+            android:textSize="@dimen/tv_tvsize" />
 
         <ImageButton
             android:id="@+id/library_search_delete"
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="5dp"
+            android:layout_margin="@dimen/five_dp"
             android:background="@null"
             android:src="@mipmap/ic_homepage_search" />
     </LinearLayout>
@@ -81,11 +81,11 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginLeft="10dp"
+                android:layout_height="@dimen/four_ten_dp"
+                android:layout_marginLeft="@dimen/ten"
                 android:gravity="center_vertical"
-                android:text="最近搜过"
-                android:textSize="10sp" />
+                android:text="@string/zui_jin_sou"
+                android:textSize="@dimen/ten_sp" />
 
             <View
                 android:layout_width="match_parent"
@@ -108,11 +108,11 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginLeft="10dp"
+                android:layout_height="@dimen/four_ten_dp"
+                android:layout_marginLeft="@dimen/ten"
                 android:gravity="center_vertical"
-                android:text="大家都在搜"
-                android:textSize="10sp" />
+                android:text="@string/pople_all"
+                android:textSize="@dimen/ten_sp" />
 
             <View
                 android:layout_width="match_parent"

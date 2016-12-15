@@ -41,7 +41,7 @@ public class CompareActivity extends BaseActivity implements View.OnClickListene
 
     private String img1;
     private String img2;
-
+    private ImageView backBtn;
 
     @Override
     int setLayout() {
@@ -57,6 +57,8 @@ public class CompareActivity extends BaseActivity implements View.OnClickListene
         data = new CompareBean();
         adapter = new CompareAdapter(this);
         lv = (ListView) findViewById(R.id.com_lv);
+
+        backBtn = (ImageView) findViewById(R.id.com_back);
     }
 
     @Override
@@ -67,13 +69,19 @@ public class CompareActivity extends BaseActivity implements View.OnClickListene
         StartUrl(UrlAll());
         lv.setAdapter(adapter);
 
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
-        if (img1 != null){
-            Picasso.with(CompareActivity.this).load(img1).into(imgLeft);
-        }
-        if (img2 != null){
-            Picasso.with(CompareActivity.this).load(img2).into(imgRight);
-        }
+//        if (img1 != null){
+//            Picasso.with(CompareActivity.this).load(img1).into(imgLeft);
+//        }
+//        if (img2 != null){
+//            Picasso.with(CompareActivity.this).load(img2).into(imgRight);
+//        }
     }
 
 
@@ -82,8 +90,9 @@ public class CompareActivity extends BaseActivity implements View.OnClickListene
         type = bean.getType6();
         code = bean.getCode6();
         name = bean.getName6();
+        urlImg = bean.getImg6();
         StartUrl(UrlAll());
-        Log.e("CompareActivity", type + "--" + code + "---" + name);
+        Log.e("CompareActivity", type + "--" + code + "---" + name + "---" + urlImg);
     }
 
     private void StartUrl(String url) {
@@ -95,12 +104,13 @@ public class CompareActivity extends BaseActivity implements View.OnClickListene
 
                 if (flag) {
                     adapter.setI(1);
-                    img1 = urlImg;
+//                    img1 = urlImg;
 
+                    Picasso.with(CompareActivity.this).load(urlImg).into(imgLeft);
                 } else {
                     adapter.setI(2);
-                    img2 = urlImg;
-
+//                    img2 = urlImg;
+                    Picasso.with(CompareActivity.this).load(urlImg).into(imgRight);
                 }
                 adapter.setData(data);
 
@@ -120,7 +130,10 @@ public class CompareActivity extends BaseActivity implements View.OnClickListene
 
         Log.d("jjjj", "http://food.boohee.com/fb/v1/" + intent.getStringExtra("22")
                 + "s/" + intent.getStringExtra("11") + "/mode_show?token=" + intent.getStringExtra("33"));
-        urlImg = intent.getStringExtra("44");
+//        urlImg = intent.getStringExtra("44");
+//        Log.d("CompareActivity", urlImg);
+        Log.d("fuck you", "http://food.boohee.com/fb/v1/" + type
+                + "s/" + code + "/mode_show?token=" + name);
         return "http://food.boohee.com/fb/v1/" + type
                 + "s/" + code + "/mode_show?token=" + name;
     }

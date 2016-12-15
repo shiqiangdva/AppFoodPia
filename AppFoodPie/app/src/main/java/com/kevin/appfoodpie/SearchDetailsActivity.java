@@ -155,15 +155,16 @@ public class SearchDetailsActivity extends BaseActivity implements View.OnClickL
                 bean.setCode6(data.get(i).getCode());
                 bean.setType6(data.get(i).getType());
                 bean.setName6(data.get(i).getName());
+                bean.setImg6(data.get(i).getThumb_image_url());
                 EventBus.getDefault().post(bean);
 //                Log.d("jjjj", bean.getName6() + " " + bean.getCode6() + " " + bean.getType6());
 
-                Intent intent = new Intent(SearchDetailsActivity.this,CompareActivity.class);
+//                Intent intent = new Intent(SearchDetailsActivity.this,CompareActivity.class);
 //                intent.putExtra("11",data.get(i).getCode());
 //                intent.putExtra("22",data.get(i).getType());
 //                intent.putExtra("33",data.get(i).getName());
-                intent.putExtra("44",data.get(i).getThumb_image_url());
-                startActivity(intent);
+//                intent.putExtra("44",data.get(i).getThumb_image_url());
+//                startActivity(intent);
                 finish();
             }
         });

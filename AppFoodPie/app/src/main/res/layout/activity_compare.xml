@@ -12,18 +12,19 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="@dimen/five_zen">
 
         <ImageView
+            android:id="@+id/com_back"
             android:src="@mipmap/ic_back_dark"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/ten"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:layout_marginLeft="10dp"
-            android:textColor="#000"
-            android:text="对比详情"
+            android:layout_marginLeft="@dimen/ten"
+            android:textColor="@color/colorDick"
+            android:text="@string/dui_bi_more"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -33,7 +34,7 @@
     <RelativeLayout
         android:id="@+id/vv"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="@dimen/one_five_ten_dp"
         android:layout_below="@+id/kk"
         >
 
@@ -41,7 +42,7 @@
             android:id="@+id/com_vs"
             android:layout_centerInParent="true"
             android:src="@mipmap/ic_library_vs"
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/ten"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -50,8 +51,9 @@
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/com_vs"
             android:src="@mipmap/img_compare_add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="@dimen/one_zen_zen"
+            android:layout_height="@dimen/one_zen_zen"
+            android:scaleType="fitXY"/>
 
 
         <ImageView
@@ -59,8 +61,9 @@
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/com_vs"
             android:src="@mipmap/img_compare_add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="@dimen/one_zen_zen"
+            android:layout_height="@dimen/one_zen_zen"
+            android:scaleType="fitXY"/>
 
     </RelativeLayout>
 
@@ -72,7 +75,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:text="营养元素(毫克)"
+            android:text="@string/yuan_su"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

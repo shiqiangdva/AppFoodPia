@@ -10,20 +10,20 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="@dimen/five_zen">
 
         <ImageView
             android:id="@+id/aty_web_iv"
             android:src="@mipmap/ic_back_dark_center"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="@dimen/ten_five_dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:text="梦话,睡个好觉,画个好梦"
-            android:textSize="18dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="5dp"
+            android:text="@string/sleep"
+            android:textSize="@dimen/ten_eight"
+            android:layout_marginTop="@dimen/ten_five_dp"
+            android:layout_marginLeft="@dimen/five_dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

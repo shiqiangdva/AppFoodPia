@@ -4,7 +4,7 @@
     android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff">
+    android:background="@color/colorWhiteThree">
 
     <ImageView
         android:src="@mipmap/ic_trash"
@@ -13,9 +13,9 @@
 
     <TextView
         android:id="@+id/tv_foot_trash"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:text="清空历史记录"
+        android:layout_marginTop="@dimen/ten"
+        android:layout_marginBottom="@dimen/ten"
+        android:text="@string/history"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

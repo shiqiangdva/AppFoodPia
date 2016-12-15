@@ -22,6 +22,11 @@
 
     <color name="colorWhiteThree">#fff</color>
 
+
     <color name="colorWhiteFour">#f1f1f1</color>
+    <color name="colorRen">#f75d5d</color>
+    <color name="colorRenTwo">#f00</color>
+
+
 
 </resources>

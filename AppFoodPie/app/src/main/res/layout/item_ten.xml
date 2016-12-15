@@ -7,8 +7,8 @@
 
     <TextView
         android:id="@+id/tv_ten"
-        android:textColor="#000"
-        android:layout_margin="15dp"
+        android:textColor="@color/colorDick"
+        android:layout_margin="@dimen/onefivedp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

@@ -65,8 +65,7 @@
         <activity android:name=".ThreeActivity" />
         <activity android:name=".CollectionActivity" />
         <activity android:name=".TestActivity" />
-        <activity android:name=".CompareActivity"
-            android:launchMode="singleTask"/>
+        <activity android:name=".CompareActivity" />
         <activity android:name=".WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,7 +1,10 @@
 package com.kevin.appfoodpie.fragments;
 
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.View;
@@ -26,6 +29,8 @@ public class CFoodFragment extends BaseFragment {
     private CFoodAdapter adapter;
     private ListView lv;
 
+    private MyBR br;
+
     @Override
     protected int setLayout() {
         return R.layout.fragment_cfood;
@@ -36,6 +41,18 @@ public class CFoodFragment extends BaseFragment {
         data = new ArrayList<>();
         adapter = new CFoodAdapter(getContext());
         lv = (ListView) view.findViewById(R.id.lv_food);
+
+        br = new MyBR();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com");
+        getActivity().registerReceiver(br,intentFilter);
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        getActivity().unregisterReceiver(br);
     }
 
     @Override
@@ -66,4 +83,15 @@ public class CFoodFragment extends BaseFragment {
         adapter.setData(data);
         lv.setAdapter(adapter);
     }
+
+    class MyBR extends BroadcastReceiver{
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getStringExtra("SX").equals("SX")){
+                initData();
+            }
+        }
+    }
+
 }

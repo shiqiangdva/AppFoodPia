@@ -12,7 +12,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:background="#fff">
+        android:background="@color/colorWhiteThree">
 
 
         <ImageView
@@ -21,15 +21,15 @@
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_back_dark"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/ten"
             />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="资讯详情"
-            android:layout_marginRight="15dp"
+            android:text="@string/more"
+            android:layout_marginRight="@dimen/ten_five_dp"
             />
 
 
@@ -46,7 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.8"
-        android:background="#fff"
+        android:background="@color/colorWhiteThree"
         android:orientation="horizontal">
 
 
@@ -58,16 +58,16 @@
             android:gravity="center">
 
             <ImageView
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/five_dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_photo_share"
                 android:layout_gravity="center_vertical"/>
             <TextView
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/five_dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="分享"
+                android:text="@string/share"
                 android:layout_gravity="center_vertical"/>
         </LinearLayout>
 
@@ -80,7 +80,7 @@
 
             <ImageView
                 android:id="@+id/img_love"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/five_dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/love_bg"
@@ -88,10 +88,10 @@
 
             <!--android:src="@mipmap/ic_news_keep_default"-->
             <TextView
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/five_dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="收藏"
+                android:text="@string/colletion"
                 android:layout_gravity="center_vertical"/>
 
         </LinearLayout>

@@ -68,7 +68,7 @@ public class ThreeActivity extends BaseActivity{
         // 返回按钮
         backBtn();
 
-        if (!DBTool.getInstance().isDataSave(et.getText().toString())) {
+        if (!DBTool.getInstance().isDataSave(tvName.getText().toString())) {
             i = 1;
             Log.d("hh", "我走了这一步");
             love.setSelected(false);
@@ -101,8 +101,7 @@ public class ThreeActivity extends BaseActivity{
                     // 存过 要删 双数
                     love.setSelected(false);
                     i = i + 1;
-
-                    DBTool.getInstance().deleteByData(tvName.toString());
+                    DBTool.getInstance().deleteByData(tvName.getText().toString());
                 }
             }
         });
@@ -194,6 +193,9 @@ public class ThreeActivity extends BaseActivity{
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent("com");
+                intent.putExtra("SX","SX");
+                sendBroadcast(intent);
                 finish();
             }
         });

@@ -50,6 +50,7 @@ public class SearchActivity extends BaseActivity implements TenClick {
     private Food food;
 
     private MyBR br;
+    private View view;
 
     @Override
     int setLayout() {
@@ -108,7 +109,7 @@ public class SearchActivity extends BaseActivity implements TenClick {
             }
         });
         // 添加尾布局
-        View view = getLayoutInflater().inflate(R.layout.foot_view, null);
+        view = getLayoutInflater().inflate(R.layout.foot_view, null);
         TextView tvFoot = (TextView) view.findViewById(R.id.tv_foot_trash);
         tvFoot.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,6 +158,8 @@ public class SearchActivity extends BaseActivity implements TenClick {
         hisAdapter.setData(listName);
 //        hisAdapter.Clean();
         lv.setAdapter(hisAdapter);
+
+
     }
 
     class MyBR extends BroadcastReceiver{
@@ -234,6 +237,7 @@ public class SearchActivity extends BaseActivity implements TenClick {
                 Intent intent = new Intent(SearchActivity.this, SearchDetailsActivity.class);
                 intent.putExtra("food", etData);
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -263,5 +267,6 @@ public class SearchActivity extends BaseActivity implements TenClick {
         Intent intent = new Intent(SearchActivity.this, SearchDetailsActivity.class);
         intent.putExtra("food", data);
         startActivity(intent);
+        finish();
     }
 }

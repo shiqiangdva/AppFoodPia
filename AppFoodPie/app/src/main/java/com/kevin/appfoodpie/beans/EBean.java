@@ -7,6 +7,15 @@ package com.kevin.appfoodpie.beans;
 public class EBean {
 
     private String code6,type6,name6;
+    private String img6;
+
+    public String getImg6() {
+        return img6;
+    }
+
+    public void setImg6(String img6) {
+        this.img6 = img6;
+    }
 
     public String getCode6() {
         return code6;

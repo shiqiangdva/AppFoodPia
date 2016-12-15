@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 /**
- * Created by leisure on 2016/11/28.
+ * Created by kevin on 2016/11/28.
  */
 //切记如何使用!!!!!
     //清单文件中加入自己的App

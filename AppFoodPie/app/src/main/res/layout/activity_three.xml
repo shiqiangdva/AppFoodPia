@@ -11,7 +11,7 @@
         android:background="@null"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="@dimen/five_zen">
 
         <ImageView
             android:id="@+id/three_acy_back"
@@ -22,8 +22,7 @@
 
         <EditText
             android:id="@+id/three_acy_et"
-            android:text="测试数据"
-            android:layout_margin="5dp"
+            android:layout_margin="@dimen/five_dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -33,7 +32,7 @@
 
             <ImageView
                 android:id="@+id/three_acy_love"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/ten"
                 android:layout_alignParentRight="true"
                 android:background="@drawable/love_bg"
                 android:layout_width="wrap_content"
@@ -47,7 +46,7 @@
     <LinearLayout
         android:id="@+id/ll_two"
         android:background="@null"
-        android:layout_margin="20dp"
+        android:layout_margin="@dimen/two_ten"
         android:layout_below="@+id/ll_one"
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -55,8 +54,8 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/three_acy_img"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="@dimen/six_ten"
+            android:layout_height="@dimen/six_ten"
             android:src="@mipmap/ic_launcher"
             />
 
@@ -67,29 +66,27 @@
 
             <TextView
                 android:id="@+id/three_acy_tv_name"
-                android:text="测试数据"
-                android:layout_margin="5dp"
+                android:layout_margin="@dimen/five_dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#000"/>
+                android:textColor="@color/colorDick"/>
 
             <TextView
                 android:id="@+id/three_acy_tv_qk"
                 android:layout_below="@+id/three_acy_tv_name"
-                android:layout_margin="5dp"
-                android:text="测试数据"
+                android:layout_margin="@dimen/five_dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#000"/>
+                android:textColor="@color/colorDick"/>
 
             <TextView
                 android:layout_toRightOf="@+id/three_acy_tv_qk"
                 android:layout_below="@+id/three_acy_tv_name"
-                android:layout_margin="5dp"
-                android:text="/每100克"
+                android:layout_margin="@dimen/five_dp"
+                android:text="@string/_100_m"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#000"/>
+                android:textColor="@color/colorDick"/>
 
         </RelativeLayout>
 
@@ -98,11 +95,11 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:textColor="#000"
-                android:layout_margin="5dp"
+                android:textColor="@color/colorDick"
+                android:layout_margin="@dimen/five_dp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
-                android:text="千卡"
+                android:text="@string/qk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -114,7 +111,7 @@
     <LinearLayout
         android:id="@+id/ll_three"
         android:layout_below="@+id/ll_two"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/ten"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -126,38 +123,38 @@
             android:layout_height="350dp">
 
             <TextView
-                android:text="营养元素"
+                android:text="@string/yyys"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
 
             <TextView
-                android:text="热量"
-                android:textColor="#000"
+                android:text="@string/hot"
+                android:textColor="@color/colorDick"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1" />
             <TextView
-                android:text="蛋白质"
-                android:textColor="#000"
+                android:text="@string/dbz"
+                android:textColor="@color/colorDick"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1" />
             <TextView
-                android:text="脂肪"
-                android:textColor="#000"
+                android:text="@string/fit"
+                android:textColor="@color/colorDick"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1" />
             <TextView
-                android:text="碳水化合物"
-                android:textColor="#000"
+                android:text="@string/tshhw"
+                android:textColor="@color/colorDick"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1" />
             <TextView
-                android:text="膳食纤维"
-                android:textColor="#000"
+                android:text="@string/ssxw"
+                android:textColor="@color/colorDick"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1" />
@@ -168,46 +165,41 @@
             android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="350dp">
+            android:layout_height="@dimen/three_five_ten_dp">
 
             <TextView
-                android:text="每100克"
+                android:text="@string/_100"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
 
             <TextView
                 android:id="@+id/tv_sb_qk"
-                android:text="测试数据"
-                android:textColor="#000"
+                android:textColor="@color/colorDick"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
             <TextView
                 android:id="@+id/tv_sb_dbz"
-                android:text="测试数据"
-                android:textColor="#000"
+                android:textColor="@color/colorDick"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
             <TextView
                 android:id="@+id/tv_sb_zf"
-                android:text="测试数据"
-                android:textColor="#000"
+                android:textColor="@color/colorDick"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
             <TextView
                 android:id="@+id/tv_sb_tsh"
-                android:text="测试数据"
-                android:textColor="#000"
+                android:textColor="@color/colorDick"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
             <TextView
                 android:id="@+id/tv_sb_ssxw"
-                android:text="测试数据"
-                android:textColor="#000"
+                android:textColor="@color/colorDick"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
@@ -218,46 +210,41 @@
             android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="350dp">
+            android:layout_height="@dimen/three_five_ten_dp">
 
             <TextView
-                android:text="备注"
+                android:text="@string/bei_zhu"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
 
             <TextView
                 android:id="@+id/tv_sb_qk_b"
-                android:text="测试数据"
-                android:textColor="#f00"
+                android:textColor="@color/colorRenTwo"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
             <TextView
                 android:id="@+id/tv_sb_dbz_b"
-                android:text="测试数据"
-                android:textColor="#f00"
+                android:textColor="@color/colorRenTwo"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
             <TextView
                 android:id="@+id/tv_sb_zf_b"
-                android:text="测试数据"
-                android:textColor="#f00"
+                android:textColor="@color/colorRenTwo"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
             <TextView
                 android:id="@+id/tv_sb_tsh_b"
-                android:text="测试数据"
-                android:textColor="#f00"
+                android:textColor="@color/colorRenTwo"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
             <TextView
                 android:id="@+id/tv_sb_ssxw_b"
-                android:text="测试数据"
-                android:textColor="#f00"
+                android:textColor="@color/colorRenTwo"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
@@ -273,7 +260,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:text="更多营养元素"
+            android:text="@string/more_ys"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

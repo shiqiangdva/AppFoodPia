@@ -10,7 +10,6 @@
         android:layout_margin="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="测试数据"
         android:textColor="#000" />
 
     <RelativeLayout

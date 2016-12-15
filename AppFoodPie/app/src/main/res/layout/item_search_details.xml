@@ -5,26 +5,26 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/details_img"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_margin="5dp" />
+        android:layout_width="@dimen/four_ten_dp"
+        android:layout_height="@dimen/four_ten_dp"
+        android:layout_margin="@dimen/five_dp" />
 
     <LinearLayout
         android:layout_toRightOf="@+id/details_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_margin="@dimen/five_dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/details_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="测试name"/>
+            android:layout_margin="@dimen/five_dp"
+            />
 
         <RelativeLayout
-            android:layout_margin="5dp"
+            android:layout_margin="@dimen/five_dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
@@ -32,13 +32,13 @@
                 android:id="@+id/details_kc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#f75d5d"
-                android:textSize="10sp"
-                android:text="测试数字"/>
+                android:textColor="@color/colorRen"
+                android:textSize="@dimen/ten_sp"
+                />
 
             <TextView
-                android:text="千卡/100克"
-                android:textSize="10sp"
+                android:text="@string/qianka"
+                android:textSize="@dimen/ten_sp"
                 android:layout_toRightOf="@+id/details_kc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_launcher"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
+        android:layout_marginRight="@dimen/ten"
         />
 
 </RelativeLayout>

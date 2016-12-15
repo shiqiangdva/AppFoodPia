@@ -3,11 +3,11 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#fff">
+    android:background="@color/colorWhiteThree">
 
     <TextView
         android:id="@+id/tv_pop_more"
-        android:layout_width="100dp"
-        android:layout_height="30dp" />
+        android:layout_width="@dimen/one_zen_zen"
+        android:layout_height="@dimen/three_zen" />
 
 </LinearLayout>
